@@ -158,23 +158,23 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
 .mhi{flex:1}.mhn{font-size:14px;font-weight:800;color:var(--mk8)}.mhs{font-size:10px;color:rgba(255,255,255,.42)}
 .mc{background:rgba(255,255,255,.1);border:none;border-radius:8px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,.7);font-size:16px;transition:all .15s}
 .mc:hover{background:rgba(255,255,255,.2)}
-.cms{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.cms{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px;background:#0f1f2a}
 .msg{max-width:85%;font-size:13px;line-height:1.55}
 .msg.mk{align-self:flex-start}.msg.us{align-self:flex-end}
-.mw{font-size:10px;color:#9aa0ae;margin-bottom:3px;font-weight:600}
+.mw{font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:3px;font-weight:600}
 .mb{padding:9px 13px;border-radius:14px}
-.msg.mk .mb{background:#f0f2f5;border-radius:4px 14px 14px 14px}
-.msg.us .mb{background:var(--mk9);color:#fff;border-radius:14px 4px 14px 14px}
+.msg.mk .mb{background:#0b4550;color:#fefffd;border-radius:4px 14px 14px 14px}
+.msg.us .mb{background:#3ea3af;color:#fefffd;border-radius:14px 4px 14px 14px}
 .ty{display:flex;gap:4px;align-items:center;padding:9px 13px}
-.ty span{width:6px;height:6px;border-radius:50%;background:var(--mk5);animation:bo .9s infinite}
+.ty span{width:6px;height:6px;border-radius:50%;background:var(--mk1);animation:bo .9s infinite}
 .ty span:nth-child(2){animation-delay:.15s}.ty span:nth-child(3){animation-delay:.3s}
 @keyframes bo{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.chs{padding:8px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid #f0f2f5}
+.chs{padding:8px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);background:#0f1f2a}
 .ch{padding:5px 11px;background:rgba(62,163,175,.07);border:1px solid rgba(62,163,175,.22);border-radius:20px;font-size:11px;cursor:pointer;color:var(--mk5);font-weight:500;transition:all .15s;white-space:nowrap}
 .ch:hover{background:rgba(62,163,175,.18)}
-.ci2{padding:10px 14px;border-top:1px solid #f0f2f5;display:flex;gap:8px;flex-shrink:0}
-.ci2 input{flex:1;padding:9px 13px;border:1.5px solid #e8eaed;border-radius:10px;font-size:13px;color:#1a1d23;background:#f8f9fb;outline:none;transition:border .15s}
-.ci2 input:focus{border-color:var(--mk5);background:#fff}
+.ci2{padding:10px 14px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;flex-shrink:0;background:#0f1f2a}
+.ci2 input{flex:1;padding:9px 13px;border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;font-size:13px;color:#fefffd;background:rgba(255,255,255,0.08);outline:none;transition:border .15s}
+.ci2 input:focus{border-color:var(--mk1);background:rgba(255,255,255,0.12)}
 .sb4{width:38px;height:38px;border-radius:10px;background:var(--mk9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
 .sb4:hover{background:var(--mk2)}.sb4 i{font-size:17px;color:var(--mk1)}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
@@ -186,7 +186,7 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
     <div class="sb-logo">
       <div class="wm">makers<em>.</em></div>
       <div class="proc">Soy Makers</div>
-      <div class="lema">por las cimas se conquistan juntos</div>
+      <div class="lema">las grandes cimas se conquistan juntos</div>
     </div>
     <div class="ph-wrap">
       <div class="ph-l">Fase actual</div>
@@ -368,7 +368,7 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
 <div id="mp">
   <div class="mh">
     <div class="ma">✦</div>
-    <div class="mhi"><div class="mhn">Maki</div><div class="mhs">agente de Soy Makers · por las cimas se conquistan juntos</div></div>
+    <div class="mhi"><div class="mhn">Maki</div><div class="mhs">agente de Soy Makers · las grandes cimas se conquistan juntos</div></div>
     <button class="mc" onclick="tog()"><i class="ti ti-x"></i></button>
   </div>
   <div class="cms" id="cms">
@@ -387,7 +387,7 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
 </div>
 
 <script>
-const SYS=`Eres Maki, el agente de IA del proceso de onboarding "Soy Makers" de la empresa makers. Tu lema es "por las cimas se conquistan juntos".
+const SYS=`Eres Maki, el agente de IA del proceso de onboarding "Soy Makers" de la empresa makers. Tu lema es "las grandes cimas se conquistan juntos".
 
 makers es empresa de tecnología y servicios. Ambición: "Nueva Cima: Crecer 5x en 5 años". Somos Great Place To Work. Usamos Microsoft 365 (Teams, SharePoint, OneDrive, Outlook).
 
