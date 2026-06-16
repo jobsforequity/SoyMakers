@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soy Makers · Onboarding Elite</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mk1:#e6fd53;--mk2:#0b4550;--mk3:#898a8d;--mk4:#9eb8f9;
+  --mk5:#3ea3af;--mk6:#80a4a3;--mk8:#fefffd;--mk9:#1b263f;
+  --sw:230px;--th:52px;
+}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f1923;color:#fefffd}
+.portal{display:flex;height:100vh;width:100vw}
+
+/* SIDEBAR */
+.sb{width:var(--sw);background:var(--mk9);display:flex;flex-direction:column;flex-shrink:0;border-right:1px solid rgba(255,255,255,.06)}
+.sb-logo{padding:20px 18px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.wm{font-size:28px;font-weight:900;color:var(--mk8);letter-spacing:-1.5px;font-style:italic;line-height:1}
+.wm em{font-style:normal;color:var(--mk1)}
+.proc{font-size:11px;color:var(--mk5);margin-top:5px;font-weight:600;letter-spacing:.04em}
+.lema{font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-style:italic}
+.ph-wrap{padding:12px 18px 6px}
+.ph-l{font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.ph-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(230,253,83,.1);border:1px solid rgba(230,253,83,.28);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--mk1);font-weight:600}
+nav{padding:6px 0;flex:1;overflow-y:auto}
+.ni{display:flex;align-items:center;gap:11px;padding:10px 18px;font-size:13px;color:rgba(255,255,255,.52);cursor:pointer;transition:all .15s;border-left:2px solid transparent;user-select:none}
+.ni:hover{color:var(--mk8);background:rgba(255,255,255,.05)}
+.ni.on{color:var(--mk1);background:rgba(230,253,83,.07);border-left-color:var(--mk1)}
+.ni i{font-size:17px;width:20px;flex-shrink:0}
+.ni .bc{margin-left:auto;background:var(--mk5);color:#fff;font-size:10px;border-radius:10px;padding:2px 7px;font-weight:700}
+.ns{margin:4px 18px;border:none;border-top:1px solid rgba(255,255,255,.06)}
+.mkbtn{margin:10px 12px 16px;padding:11px 13px;background:rgba(62,163,175,.14);border:1px solid rgba(62,163,175,.3);border-radius:12px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .2s}
+.mkbtn:hover{background:rgba(62,163,175,.26);border-color:rgba(62,163,175,.5)}
+.mkdot{width:8px;height:8px;border-radius:50%;background:var(--mk1);flex-shrink:0;animation:pu 2.2s infinite}
+@keyframes pu{0%,100%{box-shadow:0 0 0 0 rgba(230,253,83,.4)}50%{box-shadow:0 0 0 5px rgba(230,253,83,0)}}
+.mki{flex:1}.mkn{font-size:13px;font-weight:700;color:var(--mk8)}.mks{font-size:10px;color:rgba(255,255,255,.38)}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#f5f6f8}
+.tb{background:var(--mk9);height:var(--th);padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.tb-t{font-size:14px;font-weight:600;color:var(--mk8)}
+.tb-r{display:flex;align-items:center;gap:10px}
+.tb-n{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.tb-n i{font-size:16px;color:rgba(255,255,255,.55)}
+.np{position:absolute;top:7px;right:7px;width:5px;height:5px;border-radius:50%;background:var(--mk1)}
+.tb-av{width:32px;height:32px;border-radius:50%;background:rgba(230,253,83,.12);border:2px solid var(--mk1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mk1)}
+.ct{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+
+/* WELCOME */
+.wb{background:linear-gradient(120deg,var(--mk2) 0%,#0d5a6a 100%);border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0}
+.wb h2{font-size:18px;font-weight:700;color:var(--mk8);margin-bottom:4px}
+.wb p{font-size:13px;color:rgba(255,255,255,.58)}
+.wc{background:var(--mk1);border:none;border-radius:10px;padding:10px 18px;font-size:13px;font-weight:800;color:var(--mk9);cursor:pointer;display:flex;align-items:center;gap:7px;white-space:nowrap;transition:all .15s}
+.wc:hover{transform:scale(1.03);box-shadow:0 0 22px rgba(230,253,83,.35)}
+.wc i{font-size:16px}
+
+/* STATS */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex-shrink:0}
+.sc{background:#fff;border:1px solid #e8eaed;border-radius:12px;padding:13px 15px}
+.sl{font-size:10px;color:#7a7f8a;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.sv{font-size:22px;font-weight:700;line-height:1}
+.ss{font-size:11px;color:#9a9fa8;margin-top:3px}
+.sb2{margin-top:8px;height:3px;background:#eef0f3;border-radius:2px;overflow:hidden}
+.sf{height:100%;border-radius:2px}
+
+/* CARDS */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex-shrink:0}
+.cd{background:#fff;border:1px solid #e8eaed;border-radius:14px;padding:16px}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ct2{font-size:13px;font-weight:700;color:#1a1d23;display:flex;align-items:center;gap:6px}
+.cl{font-size:11px;color:var(--mk5);cursor:pointer;display:flex;align-items:center;gap:3px;font-weight:500}
+.cl:hover{color:var(--mk2)}
+
+/* CHECKLIST */
+.ci{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13px;color:#2d3748;border-bottom:1px solid #f0f2f5}
+.ci:last-child{border-bottom:none}
+.cico{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px}
+.cid{background:var(--mk5);color:#fff}.cip{background:#f0f2f5;border:1px solid #dde0e6;color:#9aa0ae}
+.xt.dn{color:#adb5bd;text-decoration:line-through}
+
+/* QUEST */
+.qi{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f0f2f5}
+.qi:last-child{border-bottom:none}
+.qc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.qd{background:rgba(230,253,83,.2);color:#3a5200;border:2px solid var(--mk1)}
+.qa{background:rgba(62,163,175,.12);color:var(--mk5);border:2px solid var(--mk5)}
+.ql{background:#f5f6f8;color:#b0b4be;border:1px solid #e0e3e9}
+.qi .inf{flex:1;min-width:0}
+.qi .nm{font-size:12px;font-weight:600;color:#1a1d23;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qi .sb3{font-size:10px;color:#9aa0ae}
+.qb{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;flex-shrink:0}
+.qbd{background:rgba(230,253,83,.2);color:#3a5200;border:1px solid rgba(230,253,83,.5)}
+.qba{background:rgba(62,163,175,.12);color:var(--mk5)}
+.qbl{background:#f5f6f8;color:#9aa0ae}
+
+/* DL BTN */
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.db{padding:8px 11px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;font-size:12px;color:#2d3748;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .15s;text-align:left;width:100%}
+.db:hover{border-color:var(--mk5);color:var(--mk5);background:#f0fafb}
+.db i{font-size:16px;flex-shrink:0}
+
+/* RESOURCES */
+.ri{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #f0f2f5;cursor:pointer;transition:all .15s}
+.ri:last-child{border-bottom:none}
+.ri:hover .rn{color:var(--mk5)}
+.ric{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.rnf{flex:1;min-width:0}.rn{font-size:13px;font-weight:600;color:#1a1d23;transition:color .15s}.rm{font-size:11px;color:#9aa0ae}
+
+/* FONDOS */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fc{border-radius:12px;overflow:hidden;border:1px solid #e8eaed;cursor:pointer;transition:all .18s;background:#fff}
+.fc:hover{border-color:var(--mk5);transform:translateY(-2px);box-shadow:0 8px 24px rgba(62,163,175,.15)}
+.fi{width:100%;height:100px;object-fit:cover;display:block}
+.fb{padding:10px 12px}
+.fn{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:2px}
+.fm{font-size:10px;color:#9aa0ae;display:flex;align-items:center;gap:5px}
+.fp{background:rgba(62,163,175,.1);color:var(--mk5);font-size:10px;font-weight:600;padding:2px 7px;border-radius:6px}
+
+/* JOURNEY */
+.jt{display:flex;flex-direction:column}
+.jr{display:flex;gap:12px}
+.jl{display:flex;flex-direction:column;align-items:center;width:26px;flex-shrink:0}
+.jd{width:20px;height:20px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.jln{width:2px;flex:1;min-height:12px}
+.jdo .jd{background:var(--mk5);border-color:var(--mk5);color:#fff}.jdo .jln{background:var(--mk5)}
+.jac .jd{background:rgba(230,253,83,.15);border-color:var(--mk1);color:#3a5200}.jac .jln{background:#e0e3e9}
+.jfu .jd{background:#f5f6f8;border-color:#d8dce6;color:#b0b4be}.jfu .jln{background:#e8eaed}
+.jb{padding:0 0 16px;flex:1}
+.jp{font-size:10px;color:#9aa0ae;text-transform:uppercase;letter-spacing:.07em}
+.jti{font-size:14px;font-weight:700;color:#1a1d23;margin:2px 0}
+.jde{font-size:12px;color:#6b7280}
+
+/* TEAM */
+.tc{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f0f2f5}
+.tc:last-child{border-bottom:none}
+.tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.tin{flex:1}.tn{font-size:13px;font-weight:700;color:#1a1d23}.tr{font-size:11px;color:#9aa0ae}
+.tbg{font-size:10px;padding:3px 10px;border-radius:20px;font-weight:600}
+
+/* TABS */
+.tabbar{display:flex;gap:2px;background:#f0f2f5;border-radius:10px;padding:3px;flex-shrink:0}
+.tab{flex:1;padding:7px 6px;border-radius:8px;font-size:12px;border:none;background:none;cursor:pointer;color:#7a7f8a;transition:all .15s;font-weight:500}
+.tab.on{background:#fff;color:#1a1d23;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+
+/* VIEWS */
+.vw{display:none;flex-direction:column;gap:14px}
+.vw.on{display:flex}
+.stt{font-size:13px;font-weight:700;color:#1a1d23}
+
+/* MAKI PANEL */
+#mp{position:fixed;bottom:0;right:24px;width:360px;height:545px;background:#fff;border-radius:18px 18px 0 0;display:flex;flex-direction:column;box-shadow:0 -8px 40px rgba(0,0,0,.18);z-index:1000;transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1)}
+#mp.op{transform:translateY(0)}
+.mh{background:var(--mk9);padding:14px 16px;display:flex;align-items:center;gap:10px;border-radius:18px 18px 0 0;flex-shrink:0}
+.ma{width:38px;height:38px;border-radius:50%;background:var(--mk1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.mhi{flex:1}.mhn{font-size:14px;font-weight:800;color:var(--mk8)}.mhs{font-size:10px;color:rgba(255,255,255,.42)}
+.mc{background:rgba(255,255,255,.1);border:none;border-radius:8px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,.7);font-size:16px;transition:all .15s}
+.mc:hover{background:rgba(255,255,255,.2)}
+.cms{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px;background:#0f1f2a}
+.msg{max-width:85%;font-size:13px;line-height:1.55}
+.msg.mk{align-self:flex-start}.msg.us{align-self:flex-end}
+.mw{font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:3px;font-weight:600}
+.mb{padding:9px 13px;border-radius:14px}
+.msg.mk .mb{background:#0b4550;color:#fefffd;border-radius:4px 14px 14px 14px}
+.msg.us .mb{background:#3ea3af;color:#fefffd;border-radius:14px 4px 14px 14px}
+.ty{display:flex;gap:4px;align-items:center;padding:9px 13px}
+.ty span{width:6px;height:6px;border-radius:50%;background:var(--mk1);animation:bo .9s infinite}
+.ty span:nth-child(2){animation-delay:.15s}.ty span:nth-child(3){animation-delay:.3s}
+@keyframes bo{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.chs{padding:8px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);background:#0f1f2a}
+.ch{padding:5px 11px;background:rgba(62,163,175,.07);border:1px solid rgba(62,163,175,.22);border-radius:20px;font-size:11px;cursor:pointer;color:var(--mk5);font-weight:500;transition:all .15s;white-space:nowrap}
+.ch:hover{background:rgba(62,163,175,.18)}
+.ci2{padding:10px 14px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;flex-shrink:0;background:#0f1f2a}
+.ci2 input{flex:1;padding:9px 13px;border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;font-size:13px;color:#fefffd;background:rgba(255,255,255,0.08);outline:none;transition:border .15s}
+.ci2 input:focus{border-color:var(--mk1);background:rgba(255,255,255,0.12)}
+.sb4{width:38px;height:38px;border-radius:10px;background:var(--mk9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.sb4:hover{background:var(--mk2)}.sb4 i{font-size:17px;color:var(--mk1)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+
+/* ─── EXPANDABLE PHASES ─── */
+.phase-block{background:#fff;border:1px solid #e8eaed;border-radius:14px;overflow:hidden;transition:all .2s}
+.phase-header{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;user-select:none;transition:background .15s}
+.phase-header:hover{background:#f8f9fb}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.ph-done{background:var(--mk5);color:#fff}
+.ph-active{background:rgba(230,253,83,.2);border:2px solid var(--mk1);color:#3a5200}
+.ph-future{background:#f0f2f5;border:1px solid #dde0e6;color:#b0b4be}
+.phase-meta{flex:1;min-width:0}
+.phase-tag{font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;font-weight:600}
+.pt-done{color:var(--mk5)}.pt-active{color:#5a7a00}.pt-future{color:#b0b4be}
+.phase-name{font-size:15px;font-weight:700;color:#1a1d23}
+.phase-desc{font-size:12px;color:#9aa0ae;margin-top:2px}
+.phase-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.phase-status{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
+.ps-done{background:rgba(62,163,175,.1);color:var(--mk5)}
+.ps-active{background:rgba(230,253,83,.15);color:#5a7a00}
+.ps-future{background:#f0f2f5;color:#b0b4be}
+.phase-arrow{font-size:18px;color:#b0b4be;transition:transform .25s}
+.phase-arrow.open{transform:rotate(180deg)}
+.phase-body{display:none;border-top:1px solid #e8eaed}
+.phase-body.open{display:block}
+
+/* modules inside phase */
+.mod-list{display:flex;flex-direction:column;gap:0}
+.mod-item{border-bottom:1px solid #f0f2f5}
+.mod-item:last-child{border-bottom:none}
+.mod-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;transition:background .15s}
+.mod-header:hover{background:#f8fafb}
+.mod-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.mod-info{flex:1}
+.mod-name{font-size:13px;font-weight:700;color:#1a1d23}
+.mod-sub{font-size:11px;color:#9aa0ae;margin-top:1px}
+.mod-tags{display:flex;gap:5px;margin-top:4px;flex-wrap:wrap}
+.mod-tag{font-size:10px;padding:2px 7px;border-radius:6px;font-weight:500}
+.mt-video{background:rgba(62,163,175,.1);color:var(--mk5)}
+.mt-doc{background:rgba(158,184,249,.12);color:var(--mk4)}
+.mt-form{background:rgba(230,253,83,.15);color:#5a7a00}
+.mod-arrow{font-size:16px;color:#c5c9d4;transition:transform .2s;flex-shrink:0}
+.mod-arrow.open{transform:rotate(180deg)}
+.mod-content{display:none;padding:0 18px 18px;background:#fafbfc;border-top:1px solid #f0f2f5}
+.mod-content.open{display:block}
+
+/* video embed */
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-bottom:14px;margin-top:14px}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+/* content summary */
+.content-summary{background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:14px;margin-bottom:14px}
+.cs-title{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.cs-item{display:flex;align-items:flex-start;gap:8px;padding:4px 0;font-size:12px;color:#4a5568;line-height:1.5}
+.cs-item::before{content:'→';color:var(--mk5);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* cultura cards */
+.cultura-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.cc{border-radius:10px;padding:12px;border:1px solid}
+.cc-mercado{background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.25)}
+.cc-adhoc{background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.35)}
+.cc-clan{background:rgba(158,184,249,.07);border-color:rgba(158,184,249,.3)}
+.cc-icon{font-size:20px;margin-bottom:6px}
+.cc-name{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:4px}
+.cc-desc{font-size:11px;color:#6b7280;line-height:1.4}
+
+/* rituales */
+.rituales-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.rg{background:#fff;border:1px solid #e8eaed;border-radius:10px;padding:11px}
+.rg-name{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:3px}
+.rg-time{font-size:10px;color:var(--mk5);font-weight:600;margin-bottom:4px}
+.rg-desc{font-size:11px;color:#6b7280;line-height:1.4}
+
+/* survey btn */
+.survey-btn{display:flex;align-items:center;gap:10px;padding:13px 16px;background:linear-gradient(120deg,var(--mk2),#0d5a6a);border:none;border-radius:12px;cursor:pointer;width:100%;color:#fff;transition:all .15s;margin-top:4px}
+.survey-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(11,69,80,.3)}
+.sb-icon{width:36px;height:36px;border-radius:10px;background:var(--mk1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sb-info{flex:1;text-align:left}
+.sb-title{font-size:13px;font-weight:700}
+.sb-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px}
+
+/* checklist phase 0 */
+.ph-checklist{padding:14px 18px}
+.phci{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f0f2f5;font-size:13px;color:#2d3748}
+.phci:last-child{border-bottom:none}
+.phci-ico{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+.phci-d{background:var(--mk5);color:#fff}
+.phci-p{background:#f0f2f5;border:1px solid #dde0e6;color:#9aa0ae}
+.phci-t.done{color:#adb5bd;text-decoration:line-through}
+
+/* coming soon */
+.coming-soon{padding:32px 18px;text-align:center;color:#b0b4be}
+.cs-icon-big{font-size:36px;margin-bottom:10px}
+.cs-msg{font-size:13px;font-weight:500;color:#9aa0ae}
+.cs-sub2{font-size:12px;color:#b0b4be;margin-top:4px}
+
+
+/* PDF viewer */
+.pdf-viewer-wrap{margin:14px 0;border-radius:10px;overflow:hidden;border:1px solid #e8eaed}
+.pdf-viewer-wrap iframe{width:100%;height:480px;border:none;display:block}
+.pdf-actions{display:flex;gap:8px;margin-bottom:12px}
+.pdf-btn{display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.pdf-view{background:rgba(62,163,175,.1);color:var(--mk5)}
+.pdf-view:hover{background:rgba(62,163,175,.2)}
+.pdf-dl{background:var(--mk2);color:#fff}
+.pdf-dl:hover{background:var(--mk9)}
+.pdf-dl i,.pdf-view i{font-size:15px}
+
+</style>
+</head>
+<body>
+<div class="portal">
+  <div class="sb">
+    <div class="sb-logo">
+      <div class="wm">makers<em>.</em></div>
+      <div class="proc">Soy Makers</div>
+      <div class="lema">las grandes cimas se conquistan juntos</div>
+    </div>
+    <div class="ph-wrap">
+      <div class="ph-l">Fase actual</div>
+      <div class="ph-chip"><i class="ti ti-rocket"></i> Preboarding</div>
+    </div>
+    <nav>
+      <div class="ni on" onclick="go('dashboard')"><i class="ti ti-layout-dashboard"></i>Dashboard</div>
+      <div class="ni" onclick="go('journey')"><i class="ti ti-map-2"></i>Mi journey</div>
+      <div class="ni" onclick="go('quest')"><i class="ti ti-trophy"></i>Soy Makers Quest<span class="bc">6</span></div>
+      <div class="ni" onclick="go('fondos')"><i class="ti ti-photo"></i>Fondos y recursos</div>
+      <div class="ni" onclick="go('equipo')"><i class="ti ti-users"></i>Mi equipo</div>
+      <hr class="ns">
+      <div class="ni" onclick="go('tekpack')"><i class="ti ti-stack-2"></i>Tek-Pack</div>
+      <div class="ni" onclick="go('ia')"><i class="ti ti-brain"></i>Makers IA</div>
+    </nav>
+    <div class="mkbtn" onclick="tog()">
+      <div class="mkdot"></div>
+      <div class="mki"><div class="mkn">Maki ✦</div><div class="mks">tu agente · disponible ahora</div></div>
+      <i class="ti ti-message-circle" style="color:var(--mk1);font-size:18px"></i>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="tb">
+      <div class="tb-t" id="pt">Dashboard · Soy Makers</div>
+      <div class="tb-r">
+        <div class="tb-n"><i class="ti ti-bell"></i><div class="np"></div></div>
+        <div class="tb-av">SM</div>
+      </div>
+    </div>
+    <div class="ct">
+
+      <div class="vw on" id="v-dashboard">
+        <div class="wb">
+          <div><h2>¡Bienvenido, nuevo Maker! 🏔️</h2><p>Estás en preboarding — Maki ya te espera para acompañarte</p></div>
+          <button class="wc" onclick="tog()"><i class="ti ti-message-circle"></i>Hablar con Maki</button>
+        </div>
+        <div class="sg">
+          <div class="sc"><div class="sl">Progreso</div><div class="sv" style="color:var(--mk5)">12%</div><div class="ss">Preboarding activo</div><div class="sb2"><div class="sf" style="width:12%;background:var(--mk5)"></div></div></div>
+          <div class="sc"><div class="sl">Días para día 1</div><div class="sv" style="color:var(--mk4)">3</div><div class="ss">Inicio: 19 jun</div><div class="sb2"><div class="sf" style="width:70%;background:var(--mk4)"></div></div></div>
+          <div class="sc"><div class="sl">Accesos listos</div><div class="sv" style="color:#5a7a00">4/7</div><div class="ss">Microsoft 365 ✓</div><div class="sb2"><div class="sf" style="width:57%;background:var(--mk1)"></div></div></div>
+          <div class="sc"><div class="sl">Quests</div><div class="sv" style="color:var(--mk6)">1/6</div><div class="ss">Quest 2 en curso</div><div class="sb2"><div class="sf" style="width:17%;background:var(--mk6)"></div></div></div>
+        </div>
+        <div class="tg">
+          <div class="cd">
+            <div class="ch"><div class="ct2"><i class="ti ti-checklist" style="color:var(--mk5)"></i>Checklist preboarding</div><div class="cl" onclick="go('journey')">Ver todo <i class="ti ti-chevron-right"></i></div></div>
+            <div class="ci"><div class="cico cid"><i class="ti ti-check"></i></div><span class="xt dn">Oferta aceptada</span></div>
+            <div class="ci"><div class="cico cid"><i class="ti ti-check"></i></div><span class="xt dn">Dashboard activo</span></div>
+            <div class="ci"><div class="cico cid"><i class="ti ti-check"></i></div><span class="xt dn">Buddy asignado</span></div>
+            <div class="ci"><div class="cico cid"><i class="ti ti-check"></i></div><span class="xt dn">Acceso Microsoft 365</span></div>
+            <div class="ci"><div class="cico cip"><i class="ti ti-clock"></i></div><span class="xt">Acceso Teams makers</span></div>
+            <div class="ci"><div class="cico cip"><i class="ti ti-clock"></i></div><span class="xt">Kit digital descargado</span></div>
+            <div class="ci"><div class="cico cip"><i class="ti ti-lock"></i></div><span class="xt" style="color:#adb5bd">Agenda día 1 confirmada</span></div>
+          </div>
+          <div class="cd">
+            <div class="ch"><div class="ct2"><i class="ti ti-trophy" style="color:var(--mk1)"></i>Soy Makers Quest</div><div class="cl" onclick="go('quest')">Ver todo <i class="ti ti-chevron-right"></i></div></div>
+            <div class="qi"><div class="qc qd"><i class="ti ti-check" style="font-size:12px"></i></div><div class="inf"><div class="nm">Quest 1 · Descubrir makers</div><div class="sb3">Historia, propósito y nueva cima</div></div><span class="qb qbd">Listo</span></div>
+            <div class="qi"><div class="qc qa" style="font-size:13px">2</div><div class="inf"><div class="nm">Quest 2 · Leer el sistema</div><div class="sb3">Estructura y flujos de valor</div></div><span class="qb qba">Activo</span></div>
+            <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 3 · Conectar personas</div><div class="sb3">Guía, buddy y equipo</div></div><span class="qb qbl">Día 1</span></div>
+            <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 4 · Activar herramientas</div><div class="sb3">Teams, Kompass, Sapian</div></div><span class="qb qbl">Día 1</span></div>
+            <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 5 · Aprender con IA</div><div class="sb3">Makers Expert Intelligence</div></div><span class="qb qbl">Semana 1</span></div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="ch"><div class="ct2"><i class="ti ti-bolt" style="color:var(--mk5)"></i>Acceso rápido</div><div class="cl" onclick="go('fondos')">Ver recursos <i class="ti ti-chevron-right"></i></div></div>
+          <div class="dg">
+            <button class="db" onclick="ask('¿Qué fondos de videollamada makers hay disponibles? Descríbeme las opciones.')"><i class="ti ti-photo" style="color:var(--mk5)"></i>Fondos de videollamada</button>
+            <button class="db" onclick="ask('¿Dónde descargo las plantillas PowerPoint y Word makers?')"><i class="ti ti-template" style="color:var(--mk4)"></i>Plantillas Microsoft 365</button>
+            <button class="db" onclick="ask('¿Qué incluye el kit digital de bienvenida makers?')"><i class="ti ti-package" style="color:#5a7a00"></i>Kit de bienvenida</button>
+            <button class="db" onclick="ask('¿Cómo accedo al Makers Path y al plan 30-60-90?')"><i class="ti ti-map" style="color:var(--mk6)"></i>Makers Path 30-60-90</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vw" id="v-journey">
+        <div class="stt">Journey completo · Soy Makers</div>
+
+        <!-- FASE 0: PREBOARDING -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph0')">
+            <div class="phase-num ph-done"><i class="ti ti-check" style="font-size:14px"></i></div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-done">Fase 0 · Ahora</div>
+              <div class="phase-name">Preboarding</div>
+              <div class="phase-desc">Desde la aceptación de la oferta hasta el día 1</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-done">Completado</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph0"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph0">
+            <div class="ph-checklist">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:10px">Checklist de preboarding</div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Oferta aceptada y datos completos</span></div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Dashboard Soy Makers activo</span></div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Buddy humano asignado</span></div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Acceso Microsoft 365 activado</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Acceso Teams makers solicitado</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Kit digital de bienvenida descargado</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Agenda del día 1 confirmada</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Equipo y herramientas listos</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 1: DÍA 1 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph1')">
+            <div class="phase-num ph-active">1</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-active">Fase 1 · 19 Junio</div>
+              <div class="phase-name">Día 1 — bienvenida memorable</div>
+              <div class="phase-desc">Conectar con el sistema makers y vivir una bienvenida de impacto</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-active">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph1"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph1">
+            <div class="ph-checklist">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:10px">Actividades del Día 1</div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Bienvenida cultural y mapa makers</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Activación Teams y Kompass</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Encuentro con buddy y guía</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Introducción al agente Maki</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Primer check-in con Talento Humano</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 2: SEMANA 1 — MÓDULOS CON CONTENIDO -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph2')">
+            <div class="phase-num ph-future">2</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 2 · Días 2–7</div>
+              <div class="phase-name">Semana 1 — explorar el rol</div>
+              <div class="phase-desc">Cultura, liderazgo, comunicaciones y herramientas clave</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph2"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph2">
+            <div class="mod-list">
+
+              <!-- MÓDULO: MODELO DE CULTURA → ver Quest 1 -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="go('quest');openQuest('q1')" style="background:rgba(230,253,83,.04)">
+                  <div class="mod-icon" style="background:rgba(230,253,83,.15)">🌱</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Transformación Cultural</div>
+                    <div class="mod-sub">Video · Presentación · Encuesta — disponible en Quest 1</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                      <span class="mod-tag mt-doc"><i class="ti ti-file-text" style="font-size:10px"></i> PDF</span>
+                      <span class="mod-tag mt-form"><i class="ti ti-clipboard-check" style="font-size:10px"></i> Encuesta</span>
+                    </div>
+                  </div>
+                  <span style="font-size:11px;background:rgba(230,253,83,.15);color:#5a7a00;padding:4px 10px;border-radius:8px;font-weight:600;white-space:nowrap">Ir a Quest 1 ↗</span>
+                </div>
+              </div>
+
+              <!-- MÓDULO: MODELOS DE COMUNICACIÓN -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-comun')">
+                  <div class="mod-icon" style="background:rgba(158,184,249,.15)">💬</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Modelos de Comunicación</div>
+                    <div class="mod-sub">Principios, canales y comunicación asincrónica en makers</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-comun"></i>
+                </div>
+
+                <div class="mod-content open" id="m-comun">
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:14px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-player-play" style="color:var(--mk5)"></i>Video</div>
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/FJqJ8ZfYGfU" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-file-text" style="color:var(--mk4)"></i>Presentación</div>
+                  <div class="pdf-actions">
+                    <button class="pdf-btn pdf-view" onclick="var el=document.getElementById('pdf-m-comun');el.style.display=el.style.display==='none'?'block':'none'"><i class="ti ti-eye"></i>Ver presentación</button>
+                    <a href="assets/comun.pdf" download="Modelo_Comunicaciones_makers.pdf" style="text-decoration:none"><button class="pdf-btn pdf-dl"><i class="ti ti-download"></i>Descargar PDF</button></a>
+                  </div>
+                  <div id="pdf-m-comun" class="pdf-viewer-wrap" style="display:none">
+                    <iframe src="assets/comun.pdf" type="application/pdf"></iframe></div>
+                  
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px">Los 4 ejes del modelo CX+</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+                    <div style="background:rgba(62,163,175,.08);border:1px solid rgba(62,163,175,.25);border-radius:10px;padding:12px"><div style="font-size:18px;margin-bottom:6px">📢</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">Comunicación Multicanal Estratégica</div><div style="font-size:11px;color:#6b7280">Campañas, mensajes clave y contenido continuo</div></div>
+                    <div style="background:rgba(230,253,83,.07);border:1px solid rgba(230,253,83,.3);border-radius:10px;padding:12px"><div style="font-size:18px;margin-bottom:6px">🎬</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">Content Lab</div><div style="font-size:11px;color:#6b7280">Videos, podcasts, fondos y guías visuales</div></div>
+                    <div style="background:rgba(158,184,249,.08);border:1px solid rgba(158,184,249,.3);border-radius:10px;padding:12px"><div style="font-size:18px;margin-bottom:6px">🗓️</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">Ceremonias y Eventos Culturales</div><div style="font-size:11px;color:#6b7280">Biweekly, reconocimientos, parches, Espíritu makers</div></div>
+                    <div style="background:rgba(128,164,163,.08);border:1px solid rgba(128,164,163,.25);border-radius:10px;padding:12px"><div style="font-size:18px;margin-bottom:6px">🧭</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">makers Kompass</div><div style="font-size:11px;color:#6b7280">Brújula compartida — info clave por equipos</div></div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(27,38,63,.06);border-color:rgba(27,38,63,.15)">
+                    <div class="cs-title" style="color:var(--mk9)"><i class="ti ti-heart" style="color:var(--mk5)"></i>Manifiesto makers</div>
+                    <div style="font-size:12px;color:#4a5568;line-height:1.7;font-style:italic">"Aquí nos escuchamos de verdad." · "Somos humanos, no solo perfiles." · "Decir 'no sé' no es debilidad, es apertura." · "La forma en que nos hablamos también es la forma en que nos cuidamos."</div>
+                  </div>
+                  <div class="content-summary" style="margin-top:14px">
+                    <div class="cs-title"><i class="ti ti-list-check" style="color:var(--mk5)"></i>Puntos clave</div>
+                    <div class="cs-item">Comunicarse bien no es enviar un mensaje, es generar una conexión</div><div class="cs-item">El modelo CX+ integra 4 ejes: Comunicación Multicanal, Content Lab, Ceremonias Culturales y Kompass</div><div class="cs-item">Cada guía es un comunicador estratégico clave de la estrategia</div><div class="cs-item">Cada maker es protagonista de la cultura: con su voz, su ejemplo y su historia</div><div class="cs-item">No hay cultura viva sin comunicación activa — cada mensaje que envías hace cultura</div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3);margin-top:10px">
+                    <div class="cs-title" style="color:#5a7a00"><i class="ti ti-quote" style="color:var(--mk1)"></i>Manifiesto makers</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">"La forma en que nos hablamos también es la forma en que nos cuidamos."</div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3);margin-top:10px">
+                    <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-bulb" style="color:var(--mk5)"></i>Reflexión</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">¿Cómo puedes ser hoy un activador de cultura en makers desde tu comunicación diaria?</div>
+                    <div style="font-size:11px;color:#6b7280;margin-top:6px">Lleva esta reflexión a tu primera conversación con tu buddy.</div>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-clipboard-check" style="color:#5a7a00"></i>Valida lo que aprendiste</div>
+                  <button class="survey-btn" onclick="window.open('https://forms.cloud.microsoft/r/w4PWHcRW5T','_blank')">
+                    <div class="sb-icon">📋</div>
+                    <div class="sb-info"><div class="sb-title">Encuesta · Modelo de Comunicaciones</div><div class="sb-sub">Completa para avanzar en el Quest · Microsoft Forms</div></div>
+                    <i class="ti ti-external-link" style="color:rgba(255,255,255,.6);font-size:18px"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MÓDULO: CONVERSACIONES PODEROSAS -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-conv')">
+                  <div class="mod-icon" style="background:rgba(62,163,175,.12)">⚡</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Conversaciones Poderosas</div>
+                    <div class="mod-sub">Feedback, comunicación efectiva y acuerdos de equipo</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-conv"></i>
+                </div>
+                <div class="mod-content" id="m-conv">
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/xL1nJfFgNl0" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="coming-soon" style="padding:16px 0 0">
+                    <div style="font-size:12px;color:#9aa0ae">📎 Presentación y encuesta próximamente</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MÓDULO: SEGURIDAD PSICOLÓGICA -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-segpsi')">
+                  <div class="mod-icon" style="background:rgba(230,253,83,.12)">🛡️</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Seguridad Psicológica</div>
+                    <div class="mod-sub">Entornos de confianza, cuidado y bienestar en makers</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-segpsi"></i>
+                </div>
+
+                <div class="mod-content open" id="m-segpsi">
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:14px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-player-play" style="color:var(--mk5)"></i>Video</div>
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/tjQL5I9ratQ" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-file-text" style="color:var(--mk4)"></i>Presentación</div>
+                  <div class="pdf-actions">
+                    <button class="pdf-btn pdf-view" onclick="var el=document.getElementById('pdf-m-segpsi');el.style.display=el.style.display==='none'?'block':'none'"><i class="ti ti-eye"></i>Ver presentación</button>
+                    <a href="assets/segpsi.pdf" download="Seguridad_Psicologica_makers.pdf" style="text-decoration:none"><button class="pdf-btn pdf-dl"><i class="ti ti-download"></i>Descargar PDF</button></a>
+                  </div>
+                  <div id="pdf-m-segpsi" class="pdf-viewer-wrap" style="display:none">
+                    <iframe src="assets/segpsi.pdf" type="application/pdf"></iframe></div>
+                  
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px">Las 4 zonas del equipo</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+                    <div style="background:rgba(62,163,175,.08);border:1px solid rgba(62,163,175,.25);border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:4px">🟢 Alta SP + Altos estándares</div><div style="font-size:11px;color:#4a5568;font-weight:700">Zona de Aprendizaje y Alto Rendimiento</div><div style="font-size:11px;color:#6b7280;margin-top:3px">Experimentación, crecimiento, innovación</div></div>
+                    <div style="background:rgba(230,253,83,.07);border:1px solid rgba(230,253,83,.3);border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:#5a7a00;margin-bottom:4px">🟡 Alta SP + Bajos estándares</div><div style="font-size:11px;color:#4a5568;font-weight:700">Zona de Confort</div><div style="font-size:11px;color:#6b7280;margin-top:3px">Pocos riesgos, falta de crecimiento</div></div>
+                    <div style="background:rgba(158,184,249,.08);border:1px solid rgba(158,184,249,.3);border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:var(--mk4);margin-bottom:4px">🔴 Baja SP + Altos estándares</div><div style="font-size:11px;color:#4a5568;font-weight:700">Zona de Ansiedad</div><div style="font-size:11px;color:#6b7280;margin-top:3px">Miedo al fracaso, estrés, culpas</div></div>
+                    <div style="background:#f5f6f8;border:1px solid #e8eaed;border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:#9aa0ae;margin-bottom:4px">⚪ Baja SP + Bajos estándares</div><div style="font-size:11px;color:#4a5568;font-weight:700">Zona de Apatía</div><div style="font-size:11px;color:#6b7280;margin-top:3px">Mínimo esfuerzo, desmotivación</div></div>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px">Comportamientos de alta seguridad psicológica</div>
+                  <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+                    <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#2d3748"><span style="color:var(--mk5);font-weight:700">✓</span>Diálogo abierto entre todos los miembros del equipo</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#2d3748"><span style="color:var(--mk5);font-weight:700">✓</span>Las emociones son bienvenidas y reconocidas</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#2d3748"><span style="color:var(--mk5);font-weight:700">✓</span>Las personas comparten ideas con confianza</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#2d3748"><span style="color:var(--mk5);font-weight:700">✓</span>Los conflictos se resuelven de manera productiva</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#2d3748"><span style="color:var(--mk5);font-weight:700">✓</span>Los líderes hablan al final, no al inicio</div>
+                  </div>
+                  <div class="content-summary" style="margin-top:14px">
+                    <div class="cs-title"><i class="ti ti-list-check" style="color:var(--mk5)"></i>Puntos clave</div>
+                    <div class="cs-item">La SP es el clima donde las personas se expresan sin miedo a ser reprendidas o humilladas — Amy Edmondson</div><div class="cs-item">El miedo bloquea la creatividad, la comunicación y el rendimiento colectivo</div><div class="cs-item">La SP no es ser amable: es respetuoso. No baja estándares, los potencia</div><div class="cs-item">El líder tiene el mayor impacto en crear o destruir la seguridad psicológica del equipo</div><div class="cs-item">3 acciones del líder: enmarcar aprendizaje · reconocer falibilidad · curiosidad proactiva</div><div class="cs-item">4 niveles: Pertenencia → Aprendizaje → Contribución → Retar el status quo</div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3);margin-top:10px">
+                    <div class="cs-title" style="color:#5a7a00"><i class="ti ti-quote" style="color:var(--mk1)"></i>Carolina Restrepo</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">"La verdadera evolución requiere inversión de tiempo, dedicación y entrenamiento para que sea perdurable y sostenible."</div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3);margin-top:10px">
+                    <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-bulb" style="color:var(--mk5)"></i>Reflexión</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">¿Creo espacios donde mi equipo puede expresar ideas sin miedo? ¿Reconozco mis propios errores frente al equipo?</div>
+                    <div style="font-size:11px;color:#6b7280;margin-top:6px">Autoevaluación de liderazgo para llevar a la conversación con tu guía en el día 15.</div>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-clipboard-check" style="color:#5a7a00"></i>Valida lo que aprendiste</div>
+                  <button class="survey-btn" onclick="window.open('https://forms.cloud.microsoft/r/PMB2it8fJu','_blank')">
+                    <div class="sb-icon">📋</div>
+                    <div class="sb-info"><div class="sb-title">Encuesta · Seguridad Psicológica</div><div class="sb-sub">Completa para validar tu aprendizaje · Microsoft Forms</div></div>
+                    <i class="ti ti-external-link" style="color:rgba(255,255,255,.6);font-size:18px"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MÓDULO: MODELO DE LIDERAZGO -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-lider')">
+                  <div class="mod-icon" style="background:rgba(62,163,175,.12)">🏔️</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Modelo de Liderazgo</div>
+                    <div class="mod-sub">Powers, Makers Path, Makers Grip y relación guía-maker</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-lider"></i>
+                </div>
+
+                <div class="mod-content open" id="m-lider">
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:14px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-player-play" style="color:var(--mk5)"></i>Video</div>
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/aDbeZmh05NA" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-file-text" style="color:var(--mk4)"></i>Presentación</div>
+                  <div class="pdf-actions">
+                    <button class="pdf-btn pdf-view" onclick="var el=document.getElementById('pdf-m-lider');el.style.display=el.style.display==='none'?'block':'none'"><i class="ti ti-eye"></i>Ver presentación</button>
+                    <a href="assets/cultura.pdf" download="m-lider_makers.pdf" style="text-decoration:none"><button class="pdf-btn pdf-dl"><i class="ti ti-download"></i>Descargar PDF</button></a>
+                  </div>
+                  <div id="pdf-m-lider" data-pdf="assets/liderazgo.pdf" class="pdf-viewer-wrap" style="display:none">
+                    <iframe src="assets/liderazgo.pdf" type="application/pdf"></iframe></div>
+                  
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px">Los 7 Powers makers</div>
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+                    <div style="background:rgba(230,253,83,.1);border:1px solid rgba(230,253,83,.3);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🔍</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Sagacidad</div></div>
+                    <div style="background:rgba(62,163,175,.08);border:1px solid rgba(62,163,175,.25);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🤝</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Servicio</div></div>
+                    <div style="background:rgba(158,184,249,.1);border:1px solid rgba(158,184,249,.3);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">💪</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Empoderamiento</div></div>
+                    <div style="background:rgba(230,253,83,.1);border:1px solid rgba(230,253,83,.3);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">👁️</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Anticipación</div></div>
+                    <div style="background:rgba(62,163,175,.08);border:1px solid rgba(62,163,175,.25);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🌱</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Evolución</div></div>
+                    <div style="background:rgba(158,184,249,.1);border:1px solid rgba(158,184,249,.3);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🏛️</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Confianza</div></div>
+                    <div style="background:rgba(230,253,83,.1);border:1px solid rgba(230,253,83,.3);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🎯</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Maestría</div></div>
+                    <div style="background:var(--mk9);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">✨</div><div style="font-size:11px;font-weight:700;color:var(--mk1)">Autenticidad</div></div>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px">Niveles de liderazgo</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+                    <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:10px"><div style="font-size:10px;color:var(--mk5);font-weight:700;margin-bottom:3px">01 · LÍDER DE ESTRATEGIA</div><div style="font-size:12px;color:#4a5568">Visionario, inspirador, guía de futuro</div></div>
+                    <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:10px"><div style="font-size:10px;color:var(--mk5);font-weight:700;margin-bottom:3px">02 · LÍDER DE PROCESO</div><div style="font-size:12px;color:#4a5568">Optimiza, ordena y desarrolla personas</div></div>
+                    <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:10px"><div style="font-size:10px;color:var(--mk5);font-weight:700;margin-bottom:3px">03 · LÍDER DE INFLUENCIA</div><div style="font-size:12px;color:#4a5568">Inspira desde cualquier lugar</div></div>
+                    <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:10px"><div style="font-size:10px;color:var(--mk5);font-weight:700;margin-bottom:3px">04 · LÍDER DE EJECUCIÓN</div><div style="font-size:12px;color:#4a5568">Impecable en la acción y el cumplimiento</div></div>
+                  </div>
+                  <div class="content-summary" style="margin-top:14px">
+                    <div class="cs-title"><i class="ti ti-list-check" style="color:var(--mk5)"></i>Puntos clave</div>
+                    <div class="cs-item">El liderazgo no es un rol, es una forma de crecer y compartir con otros</div><div class="cs-item">Cada maker tiene el power para impactar, guiar e inspirar desde su lugar</div><div class="cs-item">Los 7 Powers: Sagacidad · Servicio · Empoderamiento · Anticipación · Evolución · Confianza · Maestría</div><div class="cs-item">Los guías tienen la responsabilidad de potenciar, movilizar y acompañar al equipo</div><div class="cs-item">Todos somos líderes cuando nos autogestionamos y contribuimos con propósito</div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3);margin-top:10px">
+                    <div class="cs-title" style="color:#5a7a00"><i class="ti ti-quote" style="color:var(--mk1)"></i>Robin Sharma</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">"No nacemos siendo líderes. Nos convertimos en líderes con trabajo, práctica y propósito."</div>
+                  </div>
+                  <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3);margin-top:10px">
+                    <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-bulb" style="color:var(--mk5)"></i>Reflexión</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">¿Cuál de los 7 Powers ya habita en ti con fuerza? ¿Cuál quisieras desarrollar con más intención?</div>
+                    <div style="font-size:11px;color:#6b7280;margin-top:6px">Comparte tu reflexión con tu guía en la primera conversación del Makers Path.</div>
+                  </div>
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-clipboard-check" style="color:#5a7a00"></i>Valida lo que aprendiste</div>
+                  <button class="survey-btn" onclick="window.open('https://forms.cloud.microsoft/r/PMB2it8fJu','_blank')">
+                    <div class="sb-icon">📋</div>
+                    <div class="sb-info"><div class="sb-title">Encuesta · Modelo de Liderazgo</div><div class="sb-sub">Completa para avanzar en el Quest · Microsoft Forms</div></div>
+                    <i class="ti ti-external-link" style="color:rgba(255,255,255,.6);font-size:18px"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div><!-- /mod-list -->
+          </div>
+        </div>
+
+        <!-- FASE 3 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph3')">
+            <div class="phase-num ph-future">3</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 3 · Días 8–30</div>
+              <div class="phase-name">Activación inicial</div>
+              <div class="phase-desc">Primera misión de valor, retos simulados y shadowing</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph3"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph3">
+            <div class="coming-soon">
+              <div class="cs-icon-big">🚀</div>
+              <div class="cs-msg">Contenido en camino</div>
+              <div class="cs-sub2">Primera misión de valor, retos simulados y shadowing · Disponible al iniciar esta fase</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph4')">
+            <div class="phase-num ph-future">4</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 4 · Días 30–90</div>
+              <div class="phase-name">Plan 30-60-90</div>
+              <div class="phase-desc">Objetivos por etapa, entregables y evaluación de autonomía</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph4"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph4">
+            <div class="coming-soon">
+              <div class="cs-icon-big">📋</div>
+              <div class="cs-msg">Contenido en camino</div>
+              <div class="cs-sub2">Plan 30-60-90, entregables y evaluación de fit cultural · Disponible al iniciar esta fase</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 5 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph5')">
+            <div class="phase-num ph-future">5</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 5 · Días 180–365</div>
+              <div class="phase-name">Consolidación</div>
+              <div class="phase-desc">Tek-Pack actualizado, plan 70-20-10 y conexión con carrera</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph5"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph5">
+            <div class="coming-soon">
+              <div class="cs-icon-big">🏆</div>
+              <div class="cs-msg">Contenido en camino</div>
+              <div class="cs-sub2">Tek-Pack, plan 70-20-10 y desarrollo de carrera · Disponible al iniciar esta fase</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="vw" id="v-quest">
+        <div class="stt">Soy Makers Quest · experiencia del primer mes</div>
+
+        <!-- LISTA DE QUESTS -->
+        <div class="cd">
+          <div class="qi" style="cursor:pointer" onclick="togglePhase('q1-body');togglePhase('q1-body')">
+            <div class="qc qd"><i class="ti ti-check" style="font-size:12px"></i></div>
+            <div class="inf"><div class="nm">Quest 1 · Descubrir makers</div><div class="sb3">Transformación cultural · Historia · Propósito · Nueva cima</div></div>
+            <span class="qb qbd" style="cursor:pointer" onclick="openQuest('q1')">Abrir ↗</span>
+          </div>
+          <div class="qi"><div class="qc qa" style="font-size:13px">2</div><div class="inf"><div class="nm">Quest 2 · Leer el sistema</div><div class="sb3">Estructura, verticales, flujos de valor y clientes</div></div><span class="qb qba">En curso</span></div>
+          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 3 · Conectar con personas</div><div class="sb3">Cinco conversaciones clave: guía, buddy, equipo y TH</div></div><span class="qb qbl">Día 1</span></div>
+          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 4 · Activar herramientas</div><div class="sb3">Teams, Kompass, Sapian y mesa de ayuda</div></div><span class="qb qbl">Día 1</span></div>
+          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 5 · Aprender con IA</div><div class="sb3">Makers Expert Intelligence y prompts base por rol</div></div><span class="qb qbl">Semana 1</span></div>
+          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 6 · Crear valor</div><div class="sb3">Primera misión real con feedback del guía</div></div><span class="qb qbl">Día 15</span></div>
+        </div>
+
+        <!-- QUEST 1 EXPANDIDO -->
+        <div class="phase-block" id="q1" style="display:none">
+          <div class="phase-header" style="cursor:default;background:#f8f9fb">
+            <div class="phase-num ph-done"><i class="ti ti-check" style="font-size:14px"></i></div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-done">Quest 1 · Completado</div>
+              <div class="phase-name">Descubrir makers</div>
+              <div class="phase-desc">Transformación cultural · Propósito · Nueva cima</div>
+            </div>
+            <div class="phase-right">
+              <button class="db" style="padding:6px 12px;font-size:11px" onclick="closeQuest('q1')"><i class="ti ti-x"></i> Cerrar</button>
+            </div>
+          </div>
+          <div class="phase-body open">
+            <div class="mod-list">
+
+              <!-- MÓDULO: TRANSFORMACIÓN CULTURAL -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('q1-cultura')">
+                  <div class="mod-icon" style="background:rgba(230,253,83,.15)">🌱</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Transformación Cultural</div>
+                    <div class="mod-sub">Modelo de Cultura · Estrategia · Liderazgo · Estructura</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                      <span class="mod-tag mt-doc"><i class="ti ti-file-text" style="font-size:10px"></i> Presentación PDF</span>
+                      <span class="mod-tag mt-form"><i class="ti ti-clipboard-check" style="font-size:10px"></i> Encuesta</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-q1-cultura"></i>
+                </div>
+                <div class="mod-content open" id="q1-cultura">
+
+                  <!-- VIDEO -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:14px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-player-play" style="color:var(--mk5)"></i>Video · Modelo de Cultura</div>
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/YyOG3AdhysM" allowfullscreen loading="lazy"></iframe>
+                  </div>
+
+                  <!-- PDF -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-file-text" style="color:var(--mk4)"></i>Presentación · Transformación Cultural</div>
+                  <div class="pdf-actions">
+                    <button class="pdf-btn pdf-view" onclick="document.getElementById('pdf-cultura').style.display=document.getElementById('pdf-cultura').style.display==='none'?'block':'none'">
+                      <i class="ti ti-eye"></i>Ver presentación
+                    </button>
+                    <a href="assets/cultura.pdf" download="Transformacion_Cultural_makers.pdf" style="text-decoration:none">
+                      <button class="pdf-btn pdf-dl"><i class="ti ti-download"></i>Descargar PDF</button>
+                    </a>
+                  </div>
+                  <div id="pdf-cultura" class="pdf-viewer-wrap" style="display:none">
+                    <iframe src="assets/cultura.pdf" type="application/pdf"></iframe>
+                  </div>
+
+                  <!-- 3 CULTURAS -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px">Nuestra cultura evoluciona en 3 dimensiones</div>
+                  <div class="cultura-cards">
+                    <div class="cc cc-mercado">
+                      <div class="cc-icon">🎯</div>
+                      <div class="cc-name">Cultura de Mercado</div>
+                      <div class="cc-desc">Competitividad, resultados e impacto. Disciplina + agilidad. Medimos, celebramos y aprendemos del desempeño.</div>
+                    </div>
+                    <div class="cc cc-adhoc">
+                      <div class="cc-icon">💡</div>
+                      <div class="cc-name">Cultura Adhocrática</div>
+                      <div class="cc-desc">Innovación, flexibilidad y adaptabilidad. Experimentamos con propósito y aprendemos rápido.</div>
+                    </div>
+                    <div class="cc cc-clan">
+                      <div class="cc-icon">🤝</div>
+                      <div class="cc-name">Cultura Clan</div>
+                      <div class="cc-desc">Colaboración, confianza y comunidad. Construimos relaciones genuinas y cuidamos a las personas.</div>
+                    </div>
+                  </div>
+
+                  <!-- RITUALES -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px">Espacios de productividad makers</div>
+                  <div class="rituales-grid">
+                    <div class="rg">
+                      <div class="rg-name">🌅 Ama-Nacer</div>
+                      <div class="rg-time">Diario · 8:00 – 8:30 a.m.</div>
+                      <div class="rg-desc">Tiempo sagrado de enfoque: revisar correos, organizar prioridades y prepararse. Sin llamadas ni mensajes.</div>
+                    </div>
+                    <div class="rg">
+                      <div class="rg-name">🌇 Puesta de Sol</div>
+                      <div class="rg-time">Viernes · después de 2:30 p.m.</div>
+                      <div class="rg-desc">Sin reuniones para cerrar la semana con orden: registrar aprendizajes, anticipar lo que viene y reflexionar.</div>
+                    </div>
+                    <div class="rg">
+                      <div class="rg-name">✈️ Aterrizaje Consciente</div>
+                      <div class="rg-time">Post-vacaciones · primeras horas</div>
+                      <div class="rg-desc">Sin reuniones al regresar. Bienvenida del guía y tiempo para recuperar el ritmo sin presión.</div>
+                    </div>
+                  </div>
+
+                  <!-- REFLEXIÓN -->
+                  <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3);margin-top:18px">
+                    <div class="cs-title" style="color:#5a7a00"><i class="ti ti-bulb" style="color:var(--mk1)"></i>Pregunta disparadora</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">"¿Cuál crees que es la cultura que necesitamos vivir en makers para escalar la nueva cima que trazamos juntos?"</div>
+                    <div style="font-size:12px;color:#6b7280;margin-top:8px">Reflexiona y lleva tu respuesta a la conversación con tu guía en el día 15.</div>
+                  </div>
+
+                  <!-- ENCUESTA -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-clipboard-check" style="color:#5a7a00"></i>Valida lo que aprendiste</div>
+                  <button class="survey-btn" onclick="window.open('https://forms.cloud.microsoft/pages/responsepage.aspx?id=x-R6lIJmbk-f-AbGD2TKPt5GxMooQ6FBkbIJrqVvEwJUMUJTU0tFTVpaWlZJTktVVVJMRjdUNEtCNS4u&route=shorturl','_blank')">
+                    <div class="sb-icon">📋</div>
+                    <div class="sb-info">
+                      <div class="sb-title">Encuesta · Transformación Cultural</div>
+                      <div class="sb-sub">Completa para cerrar el Quest 1 · Microsoft Forms</div>
+                    </div>
+                    <i class="ti ti-external-link" style="color:rgba(255,255,255,.6);font-size:18px"></i>
+                  </button>
+
+                </div>
+              </div><!-- /mod cultura -->
+
+            </div><!-- /mod-list -->
+          </div>
+        </div><!-- /q1 expandido -->
+
+
+        <!-- QUEST 2 -->
+        <div class="phase-block" id="q2" style="display:none">
+          <div class="phase-header" style="cursor:default;background:#f8f9fb">
+            <div class="phase-num ph-active" style="font-size:13px">2</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-active">Quest 2 · En curso</div>
+              <div class="phase-name">Leer el sistema</div>
+              <div class="phase-desc">Estructura · Verticales · Clientes · Flujos de valor</div>
+            </div>
+            <div class="phase-right">
+              <button class="db" style="padding:6px 12px;font-size:11px" onclick="closeQuest('q2')"><i class="ti ti-x"></i> Cerrar</button>
+            </div>
+          </div>
+          <div class="phase-body open">
+            <div style="padding:16px 18px">
+              <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3)">
+                <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-target" style="color:var(--mk5)"></i>Para qué sirve este Quest</div>
+                <div style="font-size:13px;color:#2d3748;line-height:1.6">Conocer la estructura de makers, sus verticales de negocio, cómo generamos valor para los clientes y cómo se mueve el sistema. Evidencia: mapa simple del sistema + preguntas resueltas con tu guía.</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:6px">🏢 Estructura makers</div>
+                  <div style="font-size:12px;color:#4a5568;line-height:1.6">Organigrama, verticales Solutions y Platform, equipos, áreas de soporte y modelo de gobierno.</div>
+                </div>
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:6px">🎯 Clientes y flujos de valor</div>
+                  <div style="font-size:12px;color:#4a5568;line-height:1.6">Cómo llegamos a los clientes, qué problemas resolvemos, cómo medimos el impacto y dónde encaja tu rol.</div>
+                </div>
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:6px">📍 Mapa de stakeholders</div>
+                  <div style="font-size:12px;color:#4a5568;line-height:1.6">Las 5 personas clave que debes conocer en tu primera semana y cómo conectar con cada una.</div>
+                </div>
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:6px">🔐 Seguridad e información</div>
+                  <div style="font-size:12px;color:#4a5568;line-height:1.6">Políticas de seguridad de la información, manejo de datos y accesos según tu rol.</div>
+                </div>
+              </div>
+              <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3);margin-top:14px">
+                <div class="cs-title" style="color:#5a7a00"><i class="ti ti-clipboard-check" style="color:var(--mk1)"></i>Evidencia de avance</div>
+                <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">Mapa simple del sistema makers completo + 3 preguntas sobre el negocio respondidas con tu guía en el Makers Path día 7.</div>
+              </div>
+              <button class="db" style="width:100%;margin-top:12px" onclick="ask('Estoy en el Quest 2: leer el sistema. ¿Puedes explicarme la estructura de makers, sus verticales y cómo funciona el modelo de valor con clientes?')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Pedirle ayuda a Maki para entender el sistema ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUEST 3 -->
+        <div class="phase-block" id="q3" style="display:none">
+          <div class="phase-header" style="cursor:default;background:#f8f9fb">
+            <div class="phase-num ph-future" style="font-size:13px">3</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Quest 3 · Día 1</div>
+              <div class="phase-name">Conectar con la red</div>
+              <div class="phase-desc">5 conversaciones · Guía · Buddy · Equipo · Biweekly</div>
+            </div>
+            <div class="phase-right">
+              <button class="db" style="padding:6px 12px;font-size:11px" onclick="closeQuest('q3')"><i class="ti ti-x"></i> Cerrar</button>
+            </div>
+          </div>
+          <div class="phase-body open">
+            <div style="padding:16px 18px">
+              <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3)">
+                <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-users" style="color:var(--mk5)"></i>Para qué sirve este Quest</div>
+                <div style="font-size:13px;color:#2d3748;line-height:1.6">Las conexiones aceleran la integración más que cualquier documento. Evidencia: 5 conversaciones realizadas + mapa de contactos + presentación en el Biweekly.</div>
+              </div>
+
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:14px 0 8px">Las 5 conversaciones clave</div>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+                <div style="display:flex;align-items:flex-start;gap:10px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="width:32px;height:32px;border-radius:50%;background:rgba(62,163,175,.15);color:var(--mk5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
+                  <div><div style="font-size:12px;font-weight:700;color:#1a1d23">Tu Guía — Makers Path Día 7</div><div style="font-size:11px;color:#6b7280;margin-top:2px">Claridad de rol, prioridades, expectativas, primeras misiones y plan 30-60-90</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:10px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="width:32px;height:32px;border-radius:50%;background:rgba(230,253,83,.15);color:#5a7a00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">2</div>
+                  <div><div style="font-size:12px;font-weight:700;color:#1a1d23">Tu Buddy — Día 1 y Day 15</div><div style="font-size:11px;color:#6b7280;margin-top:2px">Lectura de la cultura, rituales, preguntas informales y conexiones del equipo</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:10px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="width:32px;height:32px;border-radius:50%;background:rgba(158,184,249,.15);color:var(--mk4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">3</div>
+                  <div><div style="font-size:12px;font-weight:700;color:#1a1d23">Tu Equipo — Semana 1</div><div style="font-size:11px;color:#6b7280;margin-top:2px">Contexto de proyectos activos, dinámica del equipo y formas de colaborar</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:10px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="width:32px;height:32px;border-radius:50%;background:rgba(62,163,175,.15);color:var(--mk5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">4</div>
+                  <div><div style="font-size:12px;font-weight:700;color:#1a1d23">Talento Humano — Semana 1</div><div style="font-size:11px;color:#6b7280;margin-top:2px">Beneficios, procesos, políticas y cómo apoyarte durante el onboarding</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:10px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px">
+                  <div style="width:32px;height:32px;border-radius:50%;background:rgba(230,253,83,.15);color:#5a7a00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">5</div>
+                  <div><div style="font-size:12px;font-weight:700;color:#1a1d23">Referente de unidad — Semana 1</div><div style="font-size:11px;color:#6b7280;margin-top:2px">Persona de referencia en tu vertical: cómo funciona el negocio desde adentro</div></div>
+                </div>
+              </div>
+
+              <!-- BIWEEKLY SECTION -->
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:18px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-presentation" style="color:var(--mk4)"></i>Presentación en el Biweekly — Mi historia, Mi esencia</div>
+              <div class="content-summary" style="background:rgba(27,38,63,.06);border-color:rgba(27,38,63,.15)">
+                <div class="cs-title" style="color:var(--mk9)"><i class="ti ti-microphone" style="color:var(--mk5)"></i>Tu momento de presentarte ante makers</div>
+                <div style="font-size:12px;color:#4a5568;line-height:1.7;margin-bottom:10px">En el Biweekly tendrás 10-15 minutos para presentarte al equipo. No se trata de impresionar — se trata de conectar desde lo que eres.</div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px">
+                  <div style="background:#fff;border:1px solid #e8eaed;border-radius:8px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">👨‍👩‍👧</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Parte 1</div><div style="font-size:10px;color:#6b7280;margin-top:2px">Quién soy · Mi tribu · Algo que pocos saben</div></div>
+                  <div style="background:#fff;border:1px solid #e8eaed;border-radius:8px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🔥</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Parte 2</div><div style="font-size:10px;color:#6b7280;margin-top:2px">Lo que me mueve · Pasiones · Banda sonora</div></div>
+                  <div style="background:#fff;border:1px solid #e8eaed;border-radius:8px;padding:10px;text-align:center"><div style="font-size:18px;margin-bottom:4px">🏔️</div><div style="font-size:11px;font-weight:700;color:#1a1d23">Parte 3</div><div style="font-size:10px;color:#6b7280;margin-top:2px">Mi Power makers · Qué quiero construir</div></div>
+                </div>
+                <div style="font-size:11px;color:#6b7280;font-style:italic">Puedes usar Canva, PowerPoint o hablar desde el corazón. Autenticidad > perfección.</div>
+              </div>
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:12px 0 8px;display:flex;align-items:center;gap:6px"><i class="ti ti-file-text" style="color:var(--mk4)"></i>Guía de presentación</div>
+              <div class="pdf-actions">
+                <button class="pdf-btn pdf-view" onclick="var el=document.getElementById('pdf-biweekly');el.style.display=el.style.display==='none'?'block':'none'"><i class="ti ti-eye"></i>Ver guía</button>
+                <a href="assets/biweekly.pdf" download="Guia_Biweekly_makers.pdf" style="text-decoration:none"><button class="pdf-btn pdf-dl"><i class="ti ti-download"></i>Descargar PDF</button></a>
+              </div>
+              <div id="pdf-biweekly" class="pdf-viewer-wrap" style="display:none">
+                    <iframe src="assets/biweekly.pdf" type="application/pdf"></iframe></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUEST 4 -->
+        <div class="phase-block" id="q4" style="display:none">
+          <div class="phase-header" style="cursor:default;background:#f8f9fb">
+            <div class="phase-num ph-future">4</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Quest 4 · Día 1</div>
+              <div class="phase-name">Activar herramientas</div>
+              <div class="phase-desc">Teams · Kompass · Sapian · Mesa de ayuda · Repositorios</div>
+            </div>
+            <div class="phase-right">
+              <button class="db" style="padding:6px 12px;font-size:11px" onclick="closeQuest('q4')"><i class="ti ti-x"></i> Cerrar</button>
+            </div>
+          </div>
+          <div class="phase-body open">
+            <div style="padding:16px 18px">
+              <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3)">
+                <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-tools" style="color:var(--mk5)"></i>Para qué sirve este Quest</div>
+                <div style="font-size:13px;color:#2d3748;line-height:1.6">Tener acceso completo a todas las herramientas makers antes del día 7. Evidencia: checklist de accesos y herramientas completado.</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px">
+                <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px">
+                  <div style="width:36px;height:36px;border-radius:10px;background:rgba(62,163,175,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">💬</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1d23">Microsoft Teams</div><div style="font-size:11px;color:#6b7280">Canales del equipo, reuniones, fondos makers y notificaciones</div></div>
+                  <div style="font-size:10px;background:rgba(62,163,175,.1);color:var(--mk5);padding:2px 8px;border-radius:8px;font-weight:600">Día 1</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px">
+                  <div style="width:36px;height:36px;border-radius:10px;background:rgba(230,253,83,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🧭</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1d23">Kompass makers</div><div style="font-size:11px;color:#6b7280">Brújula de conocimiento — info clave, procesos, rutas y documentos</div></div>
+                  <div style="font-size:10px;background:rgba(230,253,83,.1);color:#5a7a00;padding:2px 8px;border-radius:8px;font-weight:600">Día 1</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px">
+                  <div style="width:36px;height:36px;border-radius:10px;background:rgba(158,184,249,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">⚙️</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1d23">Sapian</div><div style="font-size:11px;color:#6b7280">Sistema de gestión interna — nómina, solicitudes y administración</div></div>
+                  <div style="font-size:10px;background:rgba(158,184,249,.1);color:var(--mk4);padding:2px 8px;border-radius:8px;font-weight:600">Semana 1</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px">
+                  <div style="width:36px;height:36px;border-radius:10px;background:rgba(128,164,163,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🎫</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1d23">Mesa de ayuda</div><div style="font-size:11px;color:#6b7280">Para reportar bloqueos de acceso, soporte IT y solicitudes de recursos</div></div>
+                  <div style="font-size:10px;background:rgba(128,164,163,.1);color:var(--mk6);padding:2px 8px;border-radius:8px;font-weight:600">Semana 1</div>
+                </div>
+              </div>
+              <button class="db" style="width:100%;margin-top:12px" onclick="ask('¿Cómo activo y configuro cada herramienta makers? Necesito saber cómo usar Teams, Kompass, Sapian y la mesa de ayuda paso a paso.')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Maki: guíame en la activación de herramientas ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUEST 5 -->
+        <div class="phase-block" id="q5" style="display:none">
+          <div class="phase-header" style="cursor:default;background:#f8f9fb">
+            <div class="phase-num ph-future">5</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Quest 5 · Semana 1</div>
+              <div class="phase-name">Trabajar con IA</div>
+              <div class="phase-desc">Makers Expert Intelligence · Prompts base · Uso responsable</div>
+            </div>
+            <div class="phase-right">
+              <button class="db" style="padding:6px 12px;font-size:11px" onclick="closeQuest('q5')"><i class="ti ti-x"></i> Cerrar</button>
+            </div>
+          </div>
+          <div class="phase-body open">
+            <div style="padding:16px 18px">
+              <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3)">
+                <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-brain" style="color:var(--mk5)"></i>Para qué sirve este Quest</div>
+                <div style="font-size:13px;color:#2d3748;line-height:1.6">La IA amplifica al maker — no reemplaza su responsabilidad ni su capacidad de pensar. Evidencia: primer caso de IA aplicado a tu rol antes del día 30.</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;margin-bottom:14px">
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:4px">✅ Uso responsable</div><div style="font-size:11px;color:#4a5568">Confidencialidad, seguridad, propiedad intelectual, trazabilidad y criterio humano</div></div>
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:var(--mk5);margin-bottom:4px">📝 Prompts base por rol</div><div style="font-size:11px;color:#4a5568">Plantillas para analizar, documentar, diseñar, desarrollar, comunicar o liderar</div></div>
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:#e05252;margin-bottom:4px">⚠️ Riesgos y límites</div><div style="font-size:11px;color:#4a5568">Información sensible, sesgos, dependencia excesiva y resultados sin verificar</div></div>
+                <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:12px"><div style="font-size:11px;font-weight:700;color:#5a7a00;margin-bottom:4px">🎯 Cuándo usar IA</div><div style="font-size:11px;color:#4a5568">Cuando acelera sin reemplazar juicio. Validar fuentes, revisar outputs y documentar</div></div>
+              </div>
+              <button class="db" style="width:100%" onclick="ask('Explícame cómo usar Makers Expert Intelligence de forma responsable. ¿Cuáles son los prompts base para mi rol y qué casos de uso están permitidos?')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Maki: enséñame a usar IA en makers ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUEST 6 -->
+        <div class="phase-block" id="q6" style="display:none">
+          <div class="phase-header" style="cursor:default;background:#f8f9fb">
+            <div class="phase-num ph-future">6</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Quest 6 · Día 15</div>
+              <div class="phase-name">Crear valor</div>
+              <div class="phase-desc">Primera misión · Makers 30 · Feedback del guía</div>
+            </div>
+            <div class="phase-right">
+              <button class="db" style="padding:6px 12px;font-size:11px" onclick="closeQuest('q6')"><i class="ti ti-x"></i> Cerrar</button>
+            </div>
+          </div>
+          <div class="phase-body open">
+            <div style="padding:16px 18px">
+              <div class="content-summary" style="background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.3)">
+                <div class="cs-title" style="color:var(--mk5)"><i class="ti ti-rocket" style="color:var(--mk5)"></i>Para qué sirve este Quest</div>
+                <div style="font-size:13px;color:#2d3748;line-height:1.6">Pasar de conocer makers a contribuir a makers. Evidencia: primer entregable validado por el guía antes del día 30.</div>
+              </div>
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin:14px 0 8px">Tipos de primera misión</div>
+              <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px">
+                <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#2d3748;padding:8px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px"><span style="color:var(--mk5);font-size:16px;flex-shrink:0">→</span>Análisis, documentación, mejora o propuesta en tu área</div>
+                <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#2d3748;padding:8px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px"><span style="color:var(--mk5);font-size:16px;flex-shrink:0">→</span>Reto simulado: caso de cliente, dilema cultural o decisión técnica</div>
+                <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#2d3748;padding:8px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px"><span style="color:var(--mk5);font-size:16px;flex-shrink:0">→</span>Shadowing activo con entregable: observar y proponer una mejora</div>
+                <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#2d3748;padding:8px 12px;background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px"><span style="color:var(--mk5);font-size:16px;flex-shrink:0">→</span>Bug, automatización, prueba o diseño según tu rol técnico</div>
+              </div>
+              <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3)">
+                <div class="cs-title" style="color:#5a7a00"><i class="ti ti-star" style="color:var(--mk1)"></i>Makers 30 — Cierre del primer mes</div>
+                <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.7">Comparte con tu guía y TH: ¿Qué entendí de makers? · ¿Con quién conecté? · ¿Qué aporté? · ¿Qué necesito fortalecer? · ¿Cuál será mi foco para los siguientes 60 días?</div>
+              </div>
+              <button class="db" style="width:100%;margin-top:12px" onclick="ask('¿Cómo preparo mi primera misión makers y el Makers 30? Necesito orientación sobre qué tipo de entregable aplica para mi rol.')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Maki: ayúdame a preparar mi primera misión ↗</button>
+            </div>
+          </div>
+        </div>
+        <button class="db" style="width:100%;margin-top:4px" onclick="ask('Terminé el Quest 1 de Transformación Cultural. ¿Qué sigue en el Quest 2?')">
+          <i class="ti ti-robot" style="color:var(--mk5)"></i>Preguntarle a Maki qué sigue ↗
+        </button>
+      </div>
+
+      <div class="vw" id="v-fondos">
+        <div class="stt">Fondos y recursos</div>
+        <div class="tabbar" id="ftbar">
+          <button class="tab on" onclick="stab(this,'ftf')">Fondos Teams</button>
+          <button class="tab" onclick="stab(this,'ftp')">Plantillas</button>
+          <button class="tab" onclick="stab(this,'ftg')">Guías</button>
+          <button class="tab" onclick="stab(this,'ftk')">Kit digital</button>
+        </div>
+        <div id="ftf">
+          <div class="fg">
+            <div class="fc" onclick="ask('Quiero descargar el fondo fútbol Colombia FIFA makers para Teams. ¿Dónde lo encuentro en OneDrive?')">
+              <img class="fi" src="assets/fondo_futbol.jpg" alt="Fondo makers fútbol Colombia FIFA">
+              <div class="fb"><div class="fn">Fondo makers · FIFA 26 Colombia</div><div class="fm"><span class="fp">Teams</span>· PNG 1280×720</div></div>
+            </div>
+            <div class="fc" onclick="ask('Quiero el fondo de sala clara makers con Great Place to Work para Teams.')">
+              <img class="fi" src="assets/fondo_sala_clara.jpg" alt="Fondo sala clara">
+              <div class="fb"><div class="fn">Fondo makers · sala clara GPTW</div><div class="fm"><span class="fp">Teams</span>· PNG 1280×720</div></div>
+            </div>
+            <div class="fc" onclick="ask('Quiero el fondo de sala oscura makers con Great Place to Work para Teams.')">
+              <img class="fi" src="assets/fondo_sala_oscura.jpg" alt="Fondo sala oscura">
+              <div class="fb"><div class="fn">Fondo makers · sala oscura GPTW</div><div class="fm"><span class="fp">Teams</span>· PNG 1280×720</div></div>
+            </div>
+            <div class="fc" onclick="ask('¿Hay más fondos makers disponibles en OneDrive además de los tres principales?')" style="background:#f8f9fb">
+              <div style="width:100%;height:100px;background:var(--mk9);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px"><span style="font-size:24px;font-weight:900;color:var(--mk1);font-style:italic">makers</span><span style="font-size:11px;color:rgba(255,255,255,.38)">+ más fondos</span></div>
+              <div class="fb"><div class="fn">Más fondos · consulta a Maki</div><div class="fm"><span class="fp">OneDrive</span>· colección completa</div></div>
+            </div>
+          </div>
+          <button class="db" style="width:100%;margin-top:10px" onclick="ask('¿Cómo agrego los fondos makers a Microsoft Teams paso a paso?')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Maki: cómo agregar fondos a Teams ↗</button>
+        </div>
+        <div id="ftp" style="display:none">
+          <div class="cd">
+            <div class="ri" onclick="ask('¿Dónde descargo la plantilla PowerPoint makers?')"><div class="ric" style="background:rgba(158,184,249,.15);color:var(--mk4)"><i class="ti ti-presentation"></i></div><div class="rnf"><div class="rn">Plantilla PowerPoint makers</div><div class="rm">Microsoft 365 · .pptx · OneDrive makers</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+            <div class="ri" onclick="ask('¿Dónde están las plantillas Word makers?')"><div class="ric" style="background:rgba(62,163,175,.1);color:var(--mk5)"><i class="ti ti-file-text"></i></div><div class="rnf"><div class="rn">Plantilla Word makers</div><div class="rm">Microsoft 365 · .docx · OneDrive makers</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+            <div class="ri" onclick="ask('¿Cómo configuro la firma de correo makers en Outlook?')"><div class="ric" style="background:rgba(128,164,163,.12);color:var(--mk6)"><i class="ti ti-mail"></i></div><div class="rnf"><div class="rn">Firma Outlook makers</div><div class="rm">Outlook 365 · configuración guiada</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+          </div>
+        </div>
+        <div id="ftg" style="display:none">
+          <div class="cd">
+            <div class="ri" onclick="ask('¿Dónde encuentro el playbook del buddy makers?')"><div class="ric" style="background:rgba(230,253,83,.12);color:#5a7a00"><i class="ti ti-book"></i></div><div class="rnf"><div class="rn">Playbook del buddy</div><div class="rm">PDF · SharePoint makers</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+            <div class="ri" onclick="ask('¿Cómo accedo a la guía de Makers Expert Intelligence?')"><div class="ric" style="background:rgba(62,163,175,.1);color:var(--mk5)"><i class="ti ti-brain"></i></div><div class="rnf"><div class="rn">Guía Makers Expert Intelligence</div><div class="rm">PDF · uso responsable de IA</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+            <div class="ri" onclick="ask('¿Qué es el Maker Passport y cómo lo completo?')"><div class="ric" style="background:rgba(158,184,249,.12);color:var(--mk4)"><i class="ti ti-id-badge-2"></i></div><div class="rnf"><div class="rn">Maker Passport</div><div class="rm">SharePoint · formulario digital día 90</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+          </div>
+        </div>
+        <div id="ftk" style="display:none">
+          <div class="cd">
+            <div class="ri" onclick="ask('¿Qué incluye el kit digital de bienvenida makers?')"><div class="ric" style="background:rgba(230,253,83,.12);color:#5a7a00"><i class="ti ti-package"></i></div><div class="rnf"><div class="rn">Kit digital de bienvenida</div><div class="rm">OneDrive · ZIP con todos los recursos</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+            <div class="ri" onclick="ask('¿Hay stickers makers para Teams?')"><div class="ric" style="background:rgba(62,163,175,.1);color:var(--mk5)"><i class="ti ti-stars"></i></div><div class="rnf"><div class="rn">Pack de stickers makers</div><div class="rm">Teams stickers · instalación guiada</div></div><i class="ti ti-download" style="color:var(--mk5)"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vw" id="v-equipo">
+        <div class="stt">Mi equipo de onboarding</div>
+        <div class="cd">
+          <div class="tc"><div class="tav" style="background:rgba(62,163,175,.15);color:var(--mk5)">TH</div><div class="tin"><div class="tn">Talento Humano</div><div class="tr">Owner del proceso Soy Makers · diseño, gobierno y mejora</div></div><span class="tbg" style="background:rgba(62,163,175,.1);color:var(--mk5)">Online</span></div>
+          <div class="tc"><div class="tav" style="background:rgba(230,253,83,.15);color:#5a7a00">BU</div><div class="tin"><div class="tn">Tu Buddy</div><div class="tr">Compañero de aterrizaje · conexión cultural informal</div></div><span class="tbg" style="background:rgba(62,163,175,.1);color:var(--mk5)">Online</span></div>
+          <div class="tc"><div class="tav" style="background:rgba(158,184,249,.15);color:var(--mk4)">GU</div><div class="tin"><div class="tn">Tu Guía</div><div class="tr">Líder directo · define rol, expectativas y misiones</div></div><span class="tbg" style="background:rgba(230,253,83,.12);color:#5a7a00">Reunión día 1</span></div>
+          <div class="tc" onclick="tog()" style="cursor:pointer"><div class="tav" style="background:rgba(230,253,83,.15);color:var(--mk9);font-size:20px">✦</div><div class="tin"><div class="tn">Maki</div><div class="tr">Agente IA Soy Makers · disponible 24/7 desde preboarding</div></div><span class="tbg" style="background:rgba(230,253,83,.15);color:#5a7a00;cursor:pointer">Chatear</span></div>
+        </div>
+
+        <div class="cd" style="margin-top:0">
+          <div class="ch"><div class="ct2"><i class="ti ti-calendar-event" style="color:var(--mk5)"></i>Puntos de contacto mínimos</div></div>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f2f5">
+              <div style="width:60px;font-size:10px;font-weight:700;color:var(--mk5);flex-shrink:0;padding-top:2px">Antes del día 1</div>
+              <div style="flex:1;font-size:12px;color:#4a5568">Presentación del buddy + mensaje del guía · Bienvenida digital al equipo</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f2f5">
+              <div style="width:60px;font-size:10px;font-weight:700;color:var(--mk5);flex-shrink:0;padding-top:2px">Día 7</div>
+              <div style="flex:1;font-size:12px;color:#4a5568">Makers Path con guía: claridad de rol, prioridades y bloqueos</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f2f5">
+              <div style="width:60px;font-size:10px;font-weight:700;color:var(--mk5);flex-shrink:0;padding-top:2px">Día 15</div>
+              <div style="flex:1;font-size:12px;color:#4a5568">Check-in buddy + pulso breve de Maki · Presentación en Biweekly</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f2f5">
+              <div style="width:60px;font-size:10px;font-weight:700;color:var(--mk5);flex-shrink:0;padding-top:2px">Día 30</div>
+              <div style="flex:1;font-size:12px;color:#4a5568">Makers 30 con guía y TH + ajuste del plan 60-90</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f2f5">
+              <div style="width:60px;font-size:10px;font-weight:700;color:var(--mk5);flex-shrink:0;padding-top:2px">Día 60</div>
+              <div style="flex:1;font-size:12px;color:#4a5568">Makers Path: autonomía, capacidades y segunda misión</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0">
+              <div style="width:60px;font-size:10px;font-weight:700;color:var(--mk5);flex-shrink:0;padding-top:2px">Día 90</div>
+              <div style="flex:1;font-size:12px;color:#4a5568">Cierre formal + Maker Passport + transición a desarrollo con guía y TH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vw" id="v-tekpack">
+        <div class="stt">Tek-Pack · mapa de capacidades</div>
+        <div class="cd" style="margin-bottom:12px">
+          <div class="ch"><div class="ct2"><i class="ti ti-stack-2" style="color:var(--mk5)"></i>¿Qué es el Tek-Pack?</div></div>
+          <p style="font-size:13px;color:#6b7280;line-height:1.7;margin-bottom:14px">Tu mapa de capacidades técnicas, humanas y de negocio según el nivel de dominio esperado para tu rol. Identifica qué traes, qué necesitas fortalecer y cómo activar tu ruta de aprendizaje desde el día 1.</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
+            <div style="background:rgba(62,163,175,.07);border:1px solid rgba(62,163,175,.25);border-radius:10px;padding:12px;text-align:center"><div style="font-size:20px;margin-bottom:6px">🧳</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">¿Qué traigo?</div><div style="font-size:11px;color:#6b7280">Experiencia, fortalezas técnicas, humanas y de negocio</div></div>
+            <div style="background:rgba(230,253,83,.07);border:1px solid rgba(230,253,83,.3);border-radius:10px;padding:12px;text-align:center"><div style="font-size:20px;margin-bottom:6px">🎯</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">¿Qué necesito?</div><div style="font-size:11px;color:#6b7280">Brechas críticas para responder al rol y al equipo</div></div>
+            <div style="background:rgba(158,184,249,.07);border:1px solid rgba(158,184,249,.3);border-radius:10px;padding:12px;text-align:center"><div style="font-size:20px;margin-bottom:6px">🚀</div><div style="font-size:11px;font-weight:700;color:#1a1d23;margin-bottom:3px">¿Qué activo?</div><div style="font-size:11px;color:#6b7280">Ruta de aprendizaje, mentorías y primera contribución</div></div>
+          </div>
+          <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px">Hitos de revisión</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+            <div style="background:rgba(62,163,175,.1);color:var(--mk5);font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(62,163,175,.3)">🗓 Día 1 — diagnóstico inicial</div>
+            <div style="background:rgba(230,253,83,.1);color:#5a7a00;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(230,253,83,.3)">📊 Día 30 — mapa + ruta activada</div>
+            <div style="background:rgba(158,184,249,.1);color:var(--mk4);font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(158,184,249,.3)">🔄 Día 60 — revisión de autonomía</div>
+            <div style="background:rgba(27,38,63,.08);color:var(--mk9);font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(27,38,63,.15)">✅ Día 90 — cierre + Maker Passport</div>
+          </div>
+          <button class="db" style="width:100%" onclick="ask('¿Cómo funciona el Tek-Pack? ¿Qué capacidades técnicas, humanas y de negocio necesito para mi rol? ¿Cómo activo mi ruta de aprendizaje desde el día 1?')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Maki: ayúdame a entender mi Tek-Pack ↗</button>
+        </div>
+
+        <div class="cd">
+          <div class="ch"><div class="ct2"><i class="ti ti-chart-bar" style="color:var(--mk5)"></i>Plan 30-60-90</div></div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+            <div style="background:#f8f9fb;border-left:4px solid var(--mk5);border-radius:0 10px 10px 0;padding:12px 14px">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:4px">30 días — Entender y conectar</div>
+              <div style="font-size:11px;color:#6b7280;line-height:1.6">Cultura, estrategia, rol, equipo, herramientas. Evidencia: mapa de rol + stakeholders + accesos + Makers Quest + primera misión.</div>
+            </div>
+            <div style="background:#f8f9fb;border-left:4px solid var(--mk4);border-radius:0 10px 10px 0;padding:12px 14px">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:4px">60 días — Practicar y ganar autonomía</div>
+              <div style="font-size:11px;color:#6b7280;line-height:1.6">Segunda misión, revisión Tek-Pack, mentoría y shadowing inverso. Evidencia: autonomía parcial en tareas clave.</div>
+            </div>
+            <div style="background:#f8f9fb;border-left:4px solid var(--mk1);border-radius:0 10px 10px 0;padding:12px 14px">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:4px">90 días — Consolidar e integrar</div>
+              <div style="font-size:11px;color:#6b7280;line-height:1.6">Resultado de mayor alcance, Maker Passport, feedback y plan 70-20-10. Evidencia: cierre formal con guía y TH.</div>
+            </div>
+          </div>
+          <button class="db" style="width:100%" onclick="ask('¿Cómo construyo mi plan 30-60-90 en makers? ¿Qué entregables, evidencias y conversaciones clave debo tener en cada etapa?')"><i class="ti ti-robot" style="color:var(--mk5)"></i>Maki: ayúdame a construir mi plan 30-60-90 ↗</button>
+        </div>
+      </div>
+
+      <div class="vw" id="v-ia">
+        <div class="stt">Makers Expert Intelligence</div>
+        <div class="cd"><p style="font-size:13px;color:#6b7280;line-height:1.7;margin-bottom:14px">Aprende a usar IA como herramienta de criterio experto. La IA no reemplaza al maker — lo ayuda a pensar mejor, ejecutar con mayor calidad y aprender más rápido.</p>
+        <button class="db" style="width:100%" onclick="ask('Explícame el módulo de Makers Expert Intelligence: uso responsable, casos permitidos y cómo empezar con prompts base para mi rol')"><i class="ti ti-brain" style="color:var(--mk5)"></i>Aprender con Maki sobre IA makers ↗</button></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="mp">
+  <div class="mh">
+    <div class="ma">✦</div>
+    <div class="mhi"><div class="mhn">Maki</div><div class="mhs">agente de Soy Makers · las grandes cimas se conquistan juntos</div></div>
+    <button class="mc" onclick="tog()"><i class="ti ti-x"></i></button>
+  </div>
+  <div class="cms" id="cms">
+    <div class="msg mk"><div class="mw">Maki ✦</div><div class="mb">¡Hola! Soy Maki, tu agente en el proceso Soy Makers 🏔️<br><br>Estoy aquí desde el preboarding para resolver tus dudas, mostrarte los fondos de videollamada, ayudarte a descargar recursos y guiarte en tu journey. ¿Por dónde empezamos?</div></div>
+  </div>
+  <div class="chs" id="chs">
+    <div class="ch" onclick="chip(this,'¿Qué fondos de videollamada makers hay disponibles?')">Fondos Teams</div>
+    <div class="ch" onclick="chip(this,'¿Qué accesos necesito antes del día 1?')">Accesos día 1</div>
+    <div class="ch" onclick="chip(this,'¿Quién es mi buddy y cómo lo contacto?')">Mi buddy</div>
+    <div class="ch" onclick="chip(this,'Cuéntame sobre la cultura makers y la nueva cima')">Cultura makers</div>
+  </div>
+  <div class="ci2">
+    <input type="text" id="mi" placeholder="Escríbele a Maki..." onkeydown="if(event.key==='Enter')send()">
+    <button class="sb4" onclick="send()"><i class="ti ti-send"></i></button>
+  </div>
+</div>
+
+<script>
+const SYS=`Eres Maki, el agente de IA del proceso de onboarding "Soy Makers" de la empresa makers. Tu lema es "las grandes cimas se conquistan juntos".
+
+makers es empresa de tecnología y servicios. Ambición: "Nueva Cima: Crecer 5x en 5 años". Somos Great Place To Work. Usamos Microsoft 365 (Teams, SharePoint, OneDrive, Outlook).
+
+FONDOS DISPONIBLES EN EL PORTAL (3 fondos reales):
+1. Fondo fútbol Colombia/FIFA 26 — negro con pelota en colores de la bandera colombiana y corona de banderas del mundo.
+2. Fondo sala clara GPTW — sala luminosa con sofá azul, plantas y cuadro con mapa del mundo + logos makers y Great Place To Work.
+3. Fondo sala oscura GPTW — sala moderna con pared gris, bean bag blanco, planta tropical y logo makers 3D en madera con sello Great Place To Work.
+Todos en OneDrive makers > Branding > Fondos Teams. Disponibles al activar accesos Microsoft 365.
+
+Orienta sobre: cultura makers, journey Soy Makers (6 fases), Soy Makers Quest (6 quests), Tek-Pack, Makers Path, Maker Passport, Makers Expert Intelligence, herramientas (Teams, Kompass, Sapian), buddy, guía y Talento Humano. Sé cálido, motivador y conciso. Lenguaje makers. Español siempre.`;
+
+let msgs=[],op=false,busy=false;
+
+function tog(){op=!op;document.getElementById('mp').classList.toggle('op',op);if(op)setTimeout(()=>document.getElementById('mi').focus(),300);}
+
+const VS=['dashboard','journey','quest','fondos','equipo','tekpack','ia'];
+const TT={dashboard:'Dashboard · Soy Makers',journey:'Mi journey · Soy Makers',quest:'Soy Makers Quest',fondos:'Fondos y recursos',equipo:'Mi equipo',tekpack:'Tek-Pack',ia:'Makers Expert Intelligence'};
+function go(v){
+  document.querySelectorAll('.vw').forEach(e=>e.classList.remove('on'));
+  document.querySelectorAll('.ni').forEach(e=>e.classList.remove('on'));
+  document.getElementById('v-'+v).classList.add('on');
+  document.getElementById('pt').textContent=TT[v]||v;
+  const i=VS.indexOf(v);if(i>=0)document.querySelectorAll('.ni')[i].classList.add('on');
+}
+
+function stab(b,id){
+  document.querySelectorAll('#ftbar .tab').forEach(t=>t.classList.remove('on'));
+  b.classList.add('on');
+  ['ftf','ftp','ftg','ftk'].forEach(x=>{const e=document.getElementById(x);if(e)e.style.display=x===id?'block':'none';});
+}
+
+function ask(t){if(!op)tog();setTimeout(()=>{document.getElementById('mi').value=t;send();},420);}
+function chip(e,t){e.style.opacity='.4';e.style.pointerEvents='none';document.getElementById('mi').value=t;send();}
+
+async function send(){
+  if(busy)return;
+  const inp=document.getElementById('mi');
+  const t=inp.value.trim();if(!t)return;
+  inp.value='';
+  document.getElementById('chs').style.display='none';
+  addM('us',t,'Tú');msgs.push({role:'user',content:t});
+  const ty=addTy();busy=true;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS,messages:msgs})});
+    const d=await r.json();ty.remove();
+    const rep=d.content?.[0]?.text||'Error al conectar. Intenta de nuevo.';
+    addM('mk',rep,'Maki ✦');msgs.push({role:'assistant',content:rep});
+  }catch(e){ty.remove();addM('mk','No pude conectar. Intenta de nuevo o contacta a Talento Humano.','Maki ✦');}
+  busy=false;
+}
+
+function addM(who,text,name){
+  const b=document.getElementById('cms');
+  const d=document.createElement('div');d.className='msg '+who;
+  d.innerHTML=`<div class="mw">${name}</div><div class="mb">${text.replace(/\n/g,'<br>')}</div>`;
+  b.appendChild(d);b.scrollTop=b.scrollHeight;return d;
+}
+function addTy(){
+  const b=document.getElementById('cms');
+  const d=document.createElement('div');d.className='msg mk';
+  d.innerHTML='<div class="mw">Maki ✦</div><div class="mb"><div class="ty"><span></span><span></span><span></span></div></div>';
+  b.appendChild(d);b.scrollTop=b.scrollHeight;return d;
+}
+
+function togglePhase(id){
+  const body=document.getElementById(id);
+  const arr=document.getElementById('arr-'+id);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  arr.classList.toggle('open',!isOpen);
+}
+function toggleMod(id){
+  const body=document.getElementById(id);
+  const arr=document.getElementById('arr-'+id);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  arr.classList.toggle('open',!isOpen);
+}
+
+
+function openQuest(id){
+  document.getElementById(id).style.display='block';
+  setTimeout(()=>document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+function closeQuest(id){
+  document.getElementById(id).style.display='none';
+}
+
+</script>
+</body>
+</html>
