@@ -178,6 +178,100 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
 .sb4{width:38px;height:38px;border-radius:10px;background:var(--mk9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
 .sb4:hover{background:var(--mk2)}.sb4 i{font-size:17px;color:var(--mk1)}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+
+/* ─── EXPANDABLE PHASES ─── */
+.phase-block{background:#fff;border:1px solid #e8eaed;border-radius:14px;overflow:hidden;transition:all .2s}
+.phase-header{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;user-select:none;transition:background .15s}
+.phase-header:hover{background:#f8f9fb}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.ph-done{background:var(--mk5);color:#fff}
+.ph-active{background:rgba(230,253,83,.2);border:2px solid var(--mk1);color:#3a5200}
+.ph-future{background:#f0f2f5;border:1px solid #dde0e6;color:#b0b4be}
+.phase-meta{flex:1;min-width:0}
+.phase-tag{font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;font-weight:600}
+.pt-done{color:var(--mk5)}.pt-active{color:#5a7a00}.pt-future{color:#b0b4be}
+.phase-name{font-size:15px;font-weight:700;color:#1a1d23}
+.phase-desc{font-size:12px;color:#9aa0ae;margin-top:2px}
+.phase-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.phase-status{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
+.ps-done{background:rgba(62,163,175,.1);color:var(--mk5)}
+.ps-active{background:rgba(230,253,83,.15);color:#5a7a00}
+.ps-future{background:#f0f2f5;color:#b0b4be}
+.phase-arrow{font-size:18px;color:#b0b4be;transition:transform .25s}
+.phase-arrow.open{transform:rotate(180deg)}
+.phase-body{display:none;border-top:1px solid #e8eaed}
+.phase-body.open{display:block}
+
+/* modules inside phase */
+.mod-list{display:flex;flex-direction:column;gap:0}
+.mod-item{border-bottom:1px solid #f0f2f5}
+.mod-item:last-child{border-bottom:none}
+.mod-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;transition:background .15s}
+.mod-header:hover{background:#f8fafb}
+.mod-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.mod-info{flex:1}
+.mod-name{font-size:13px;font-weight:700;color:#1a1d23}
+.mod-sub{font-size:11px;color:#9aa0ae;margin-top:1px}
+.mod-tags{display:flex;gap:5px;margin-top:4px;flex-wrap:wrap}
+.mod-tag{font-size:10px;padding:2px 7px;border-radius:6px;font-weight:500}
+.mt-video{background:rgba(62,163,175,.1);color:var(--mk5)}
+.mt-doc{background:rgba(158,184,249,.12);color:var(--mk4)}
+.mt-form{background:rgba(230,253,83,.15);color:#5a7a00}
+.mod-arrow{font-size:16px;color:#c5c9d4;transition:transform .2s;flex-shrink:0}
+.mod-arrow.open{transform:rotate(180deg)}
+.mod-content{display:none;padding:0 18px 18px;background:#fafbfc;border-top:1px solid #f0f2f5}
+.mod-content.open{display:block}
+
+/* video embed */
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-bottom:14px;margin-top:14px}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+/* content summary */
+.content-summary{background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:14px;margin-bottom:14px}
+.cs-title{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.cs-item{display:flex;align-items:flex-start;gap:8px;padding:4px 0;font-size:12px;color:#4a5568;line-height:1.5}
+.cs-item::before{content:'→';color:var(--mk5);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* cultura cards */
+.cultura-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.cc{border-radius:10px;padding:12px;border:1px solid}
+.cc-mercado{background:rgba(62,163,175,.07);border-color:rgba(62,163,175,.25)}
+.cc-adhoc{background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.35)}
+.cc-clan{background:rgba(158,184,249,.07);border-color:rgba(158,184,249,.3)}
+.cc-icon{font-size:20px;margin-bottom:6px}
+.cc-name{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:4px}
+.cc-desc{font-size:11px;color:#6b7280;line-height:1.4}
+
+/* rituales */
+.rituales-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.rg{background:#fff;border:1px solid #e8eaed;border-radius:10px;padding:11px}
+.rg-name{font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:3px}
+.rg-time{font-size:10px;color:var(--mk5);font-weight:600;margin-bottom:4px}
+.rg-desc{font-size:11px;color:#6b7280;line-height:1.4}
+
+/* survey btn */
+.survey-btn{display:flex;align-items:center;gap:10px;padding:13px 16px;background:linear-gradient(120deg,var(--mk2),#0d5a6a);border:none;border-radius:12px;cursor:pointer;width:100%;color:#fff;transition:all .15s;margin-top:4px}
+.survey-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(11,69,80,.3)}
+.sb-icon{width:36px;height:36px;border-radius:10px;background:var(--mk1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sb-info{flex:1;text-align:left}
+.sb-title{font-size:13px;font-weight:700}
+.sb-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px}
+
+/* checklist phase 0 */
+.ph-checklist{padding:14px 18px}
+.phci{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f0f2f5;font-size:13px;color:#2d3748}
+.phci:last-child{border-bottom:none}
+.phci-ico{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+.phci-d{background:var(--mk5);color:#fff}
+.phci-p{background:#f0f2f5;border:1px solid #dde0e6;color:#9aa0ae}
+.phci-t.done{color:#adb5bd;text-decoration:line-through}
+
+/* coming soon */
+.coming-soon{padding:32px 18px;text-align:center;color:#b0b4be}
+.cs-icon-big{font-size:36px;margin-bottom:10px}
+.cs-msg{font-size:13px;font-weight:500;color:#9aa0ae}
+.cs-sub2{font-size:12px;color:#b0b4be;margin-top:4px}
+
 </style>
 </head>
 <body>
@@ -263,16 +357,324 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
 
       <div class="vw" id="v-journey">
         <div class="stt">Journey completo · Soy Makers</div>
-        <div class="cd">
-          <div class="jt">
-            <div class="jr jdo"><div class="jl"><div class="jd"><i class="ti ti-check" style="font-size:10px"></i></div><div class="jln"></div></div><div class="jb"><div class="jp">Fase 0 · Ahora</div><div class="jti">Preboarding</div><div class="jde">Dashboard, buddy asignado, kit digital, accesos e intro a Maki</div></div></div>
-            <div class="jr jac"><div class="jl"><div class="jd">1</div><div class="jln"></div></div><div class="jb"><div class="jp">Fase 1 · 19 junio</div><div class="jti">Día 1 — bienvenida memorable</div><div class="jde">Cultura makers, mapa de negocio, activación Teams/Kompass, primer check-in con Maki</div></div></div>
-            <div class="jr jfu"><div class="jl"><div class="jd">2</div><div class="jln"></div></div><div class="jb"><div class="jp">Fase 2 · Días 2–7</div><div class="jti">Semana 1 — explorar el rol</div><div class="jde">Rutas por rol, inducciones clave, mapa de stakeholders, primer Makers Path</div></div></div>
-            <div class="jr jfu"><div class="jl"><div class="jd">3</div><div class="jln"></div></div><div class="jb"><div class="jp">Fase 3 · Días 8–30</div><div class="jti">Activación inicial</div><div class="jde">Primera misión de valor, retos simulados, shadowing y pulso de experiencia</div></div></div>
-            <div class="jr jfu"><div class="jl"><div class="jd">4</div><div class="jln"></div></div><div class="jb"><div class="jp">Fase 4 · Días 30–90</div><div class="jti">Plan 30-60-90</div><div class="jde">Objetivos por etapa, entregables, evaluación de autonomía y fit cultural</div></div></div>
-            <div class="jr jfu"><div class="jl"><div class="jd">5</div><div class="jln"></div></div><div class="jb"><div class="jp">Fase 5 · Días 180–365</div><div class="jti">Consolidación</div><div class="jde">Tek-Pack actualizado, plan 70-20-10, conexión con carrera y desempeño</div></div></div>
+
+        <!-- FASE 0: PREBOARDING -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph0')">
+            <div class="phase-num ph-done"><i class="ti ti-check" style="font-size:14px"></i></div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-done">Fase 0 · Ahora</div>
+              <div class="phase-name">Preboarding</div>
+              <div class="phase-desc">Desde la aceptación de la oferta hasta el día 1</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-done">Completado</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph0"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph0">
+            <div class="ph-checklist">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:10px">Checklist de preboarding</div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Oferta aceptada y datos completos</span></div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Dashboard Soy Makers activo</span></div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Buddy humano asignado</span></div>
+              <div class="phci"><div class="phci-ico phci-d"><i class="ti ti-check"></i></div><span class="phci-t done">Acceso Microsoft 365 activado</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Acceso Teams makers solicitado</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Kit digital de bienvenida descargado</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Agenda del día 1 confirmada</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Equipo y herramientas listos</span></div>
+            </div>
           </div>
         </div>
+
+        <!-- FASE 1: DÍA 1 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph1')">
+            <div class="phase-num ph-active">1</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-active">Fase 1 · 19 Junio</div>
+              <div class="phase-name">Día 1 — bienvenida memorable</div>
+              <div class="phase-desc">Conectar con el sistema makers y vivir una bienvenida de impacto</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-active">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph1"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph1">
+            <div class="ph-checklist">
+              <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:10px">Actividades del Día 1</div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Bienvenida cultural y mapa makers</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Activación Teams y Kompass</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Encuentro con buddy y guía</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Introducción al agente Maki</span></div>
+              <div class="phci"><div class="phci-ico phci-p"><i class="ti ti-clock"></i></div><span class="phci-t">Primer check-in con Talento Humano</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 2: SEMANA 1 — MÓDULOS CON CONTENIDO -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph2')">
+            <div class="phase-num ph-future">2</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 2 · Días 2–7</div>
+              <div class="phase-name">Semana 1 — explorar el rol</div>
+              <div class="phase-desc">Cultura, liderazgo, comunicaciones y herramientas clave</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph2"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph2">
+            <div class="mod-list">
+
+              <!-- MÓDULO: MODELO DE CULTURA -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-cultura')">
+                  <div class="mod-icon" style="background:rgba(230,253,83,.15)">🌱</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Transformación Cultural</div>
+                    <div class="mod-sub">Modelo de Cultura · Estrategia · Liderazgo · Estructura</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                      <span class="mod-tag mt-doc"><i class="ti ti-file-text" style="font-size:10px"></i> Presentación</span>
+                      <span class="mod-tag mt-form"><i class="ti ti-clipboard-check" style="font-size:10px"></i> Encuesta</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-cultura"></i>
+                </div>
+                <div class="mod-content" id="m-cultura">
+                  <!-- VIDEO -->
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/YyOG3AdhysM" allowfullscreen loading="lazy"></iframe>
+                  </div>
+
+                  <!-- 3 CULTURAS -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px">Nuestra cultura evoluciona en 3 dimensiones</div>
+                  <div class="cultura-cards">
+                    <div class="cc cc-mercado">
+                      <div class="cc-icon">🎯</div>
+                      <div class="cc-name">Cultura de Mercado</div>
+                      <div class="cc-desc">Competitividad, resultados e impacto. Disciplina + agilidad. Medimos, celebramos y aprendemos del desempeño.</div>
+                    </div>
+                    <div class="cc cc-adhoc">
+                      <div class="cc-icon">💡</div>
+                      <div class="cc-name">Cultura Adhocrática</div>
+                      <div class="cc-desc">Innovación, flexibilidad y adaptabilidad. Experimentamos con propósito y aprendemos rápido.</div>
+                    </div>
+                    <div class="cc cc-clan">
+                      <div class="cc-icon">🤝</div>
+                      <div class="cc-name">Cultura Clan</div>
+                      <div class="cc-desc">Colaboración, confianza y comunidad. Construimos relaciones genuinas y cuidamos a las personas.</div>
+                    </div>
+                  </div>
+
+                  <!-- RITUALES -->
+                  <div style="font-size:12px;font-weight:700;color:#1a1d23;margin-bottom:8px">Espacios de productividad makers</div>
+                  <div class="rituales-grid">
+                    <div class="rg">
+                      <div class="rg-name">🌅 Ama-Nacer</div>
+                      <div class="rg-time">Diario · 8:00 – 8:30 a.m.</div>
+                      <div class="rg-desc">Tiempo sagrado de enfoque: revisar correos, organizar prioridades y prepararse. Sin llamadas ni mensajes.</div>
+                    </div>
+                    <div class="rg">
+                      <div class="rg-name">🌇 Puesta de Sol</div>
+                      <div class="rg-time">Viernes · después de 2:30 p.m.</div>
+                      <div class="rg-desc">Sin reuniones para cerrar la semana con orden: registrar aprendizajes, anticipar lo que viene y reflexionar.</div>
+                    </div>
+                    <div class="rg">
+                      <div class="rg-name">✈️ Aterrizaje Consciente</div>
+                      <div class="rg-time">Post-vacaciones · primeras horas</div>
+                      <div class="rg-desc">Sin reuniones al regresar. Bienvenida del guía y tiempo para recuperar el ritmo sin presión.</div>
+                    </div>
+                  </div>
+
+                  <!-- REFLEXIÓN -->
+                  <div class="content-summary" style="background:rgba(230,253,83,.07);border-color:rgba(230,253,83,.3)">
+                    <div class="cs-title" style="color:#5a7a00"><i class="ti ti-bulb" style="color:var(--mk1)"></i>Pregunta disparadora</div>
+                    <div style="font-size:13px;color:#2d3748;font-style:italic;line-height:1.6">"¿Cuál crees que es la cultura que necesitamos vivir en makers para escalar la nueva cima que trazamos juntos?"</div>
+                    <div style="font-size:12px;color:#6b7280;margin-top:8px">Reflexiona y lleva tu respuesta a la conversación con tu guía en el día 15.</div>
+                  </div>
+
+                  <!-- ENCUESTA -->
+                  <button class="survey-btn" onclick="window.open('https://forms.cloud.microsoft/pages/responsepage.aspx?id=x-R6lIJmbk-f-AbGD2TKPt5GxMooQ6FBkbIJrqVvEwJUMUJTU0tFTVpaWlZJTktVVVJMRjdUNEtCNS4u&route=shorturl','_blank')">
+                    <div class="sb-icon">📋</div>
+                    <div class="sb-info">
+                      <div class="sb-title">Valida lo que aprendiste</div>
+                      <div class="sb-sub">Completa la encuesta de Transformación Cultural · Microsoft Forms</div>
+                    </div>
+                    <i class="ti ti-external-link" style="color:rgba(255,255,255,.6);font-size:18px"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MÓDULO: MODELOS DE COMUNICACIÓN -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-comun')">
+                  <div class="mod-icon" style="background:rgba(158,184,249,.15)">💬</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Modelos de Comunicación</div>
+                    <div class="mod-sub">Principios, canales y comunicación asincrónica en makers</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-comun"></i>
+                </div>
+                <div class="mod-content" id="m-comun">
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/FJqJ8ZfYGfU" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="coming-soon" style="padding:16px 0 0">
+                    <div style="font-size:12px;color:#9aa0ae">📎 Presentación y encuesta próximamente</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MÓDULO: CONVERSACIONES PODEROSAS -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-conv')">
+                  <div class="mod-icon" style="background:rgba(62,163,175,.12)">⚡</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Conversaciones Poderosas</div>
+                    <div class="mod-sub">Feedback, comunicación efectiva y acuerdos de equipo</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-conv"></i>
+                </div>
+                <div class="mod-content" id="m-conv">
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/xL1nJfFgNl0" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="coming-soon" style="padding:16px 0 0">
+                    <div style="font-size:12px;color:#9aa0ae">📎 Presentación y encuesta próximamente</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MÓDULO: SEGURIDAD PSICOLÓGICA -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-segpsi')">
+                  <div class="mod-icon" style="background:rgba(230,253,83,.12)">🛡️</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Seguridad Psicológica</div>
+                    <div class="mod-sub">Entornos de confianza, cuidado y bienestar en makers</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-segpsi"></i>
+                </div>
+                <div class="mod-content" id="m-segpsi">
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/tjQL5I9ratQ" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="coming-soon" style="padding:16px 0 0">
+                    <div style="font-size:12px;color:#9aa0ae">📎 Presentación y encuesta próximamente</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MÓDULO: MODELO DE LIDERAZGO -->
+              <div class="mod-item">
+                <div class="mod-header" onclick="toggleMod('m-lider')">
+                  <div class="mod-icon" style="background:rgba(62,163,175,.12)">🏔️</div>
+                  <div class="mod-info">
+                    <div class="mod-name">Modelo de Liderazgo</div>
+                    <div class="mod-sub">Powers, Makers Path, Makers Grip y relación guía-maker</div>
+                    <div class="mod-tags">
+                      <span class="mod-tag mt-video"><i class="ti ti-player-play" style="font-size:10px"></i> Video</span>
+                    </div>
+                  </div>
+                  <i class="ti ti-chevron-down mod-arrow" id="arr-m-lider"></i>
+                </div>
+                <div class="mod-content" id="m-lider">
+                  <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/aDbeZmh05NA" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="coming-soon" style="padding:16px 0 0">
+                    <div style="font-size:12px;color:#9aa0ae">📎 Presentación y encuesta próximamente</div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /mod-list -->
+          </div>
+        </div>
+
+        <!-- FASE 3 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph3')">
+            <div class="phase-num ph-future">3</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 3 · Días 8–30</div>
+              <div class="phase-name">Activación inicial</div>
+              <div class="phase-desc">Primera misión de valor, retos simulados y shadowing</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph3"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph3">
+            <div class="coming-soon">
+              <div class="cs-icon-big">🚀</div>
+              <div class="cs-msg">Contenido en camino</div>
+              <div class="cs-sub2">Primera misión de valor, retos simulados y shadowing · Disponible al iniciar esta fase</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph4')">
+            <div class="phase-num ph-future">4</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 4 · Días 30–90</div>
+              <div class="phase-name">Plan 30-60-90</div>
+              <div class="phase-desc">Objetivos por etapa, entregables y evaluación de autonomía</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph4"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph4">
+            <div class="coming-soon">
+              <div class="cs-icon-big">📋</div>
+              <div class="cs-msg">Contenido en camino</div>
+              <div class="cs-sub2">Plan 30-60-90, entregables y evaluación de fit cultural · Disponible al iniciar esta fase</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 5 -->
+        <div class="phase-block">
+          <div class="phase-header" onclick="togglePhase('ph5')">
+            <div class="phase-num ph-future">5</div>
+            <div class="phase-meta">
+              <div class="phase-tag pt-future">Fase 5 · Días 180–365</div>
+              <div class="phase-name">Consolidación</div>
+              <div class="phase-desc">Tek-Pack actualizado, plan 70-20-10 y conexión con carrera</div>
+            </div>
+            <div class="phase-right">
+              <span class="phase-status ps-future">Próximo</span>
+              <i class="ti ti-chevron-down phase-arrow" id="arr-ph5"></i>
+            </div>
+          </div>
+          <div class="phase-body" id="ph5">
+            <div class="coming-soon">
+              <div class="cs-icon-big">🏆</div>
+              <div class="cs-msg">Contenido en camino</div>
+              <div class="cs-sub2">Tek-Pack, plan 70-20-10 y desarrollo de carrera · Disponible al iniciar esta fase</div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="vw" id="v-quest">
@@ -451,6 +853,22 @@ function addTy(){
   d.innerHTML='<div class="mw">Maki ✦</div><div class="mb"><div class="ty"><span></span><span></span><span></span></div></div>';
   b.appendChild(d);b.scrollTop=b.scrollHeight;return d;
 }
+
+function togglePhase(id){
+  const body=document.getElementById(id);
+  const arr=document.getElementById('arr-'+id);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  arr.classList.toggle('open',!isOpen);
+}
+function toggleMod(id){
+  const body=document.getElementById(id);
+  const arr=document.getElementById('arr-'+id);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  arr.classList.toggle('open',!isOpen);
+}
+
 </script>
 </body>
 </html>
