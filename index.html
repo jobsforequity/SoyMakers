@@ -1316,16 +1316,40 @@ async function send(){
   const t=inp.value.trim();if(!t)return;
   inp.value='';
   document.getElementById('chs').style.display='none';
-  addM('us',t,'Tú');msgs.push({role:'user',content:t});
+  addM('us',t,'Tu');msgs.push({role:'user',content:t});
   const ty=addTy();busy=true;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':'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','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS,messages:msgs})});
-    const d=await r.json();ty.remove();
-    const rep=d.content?.[0]?.text||'Error al conectar. Intenta de nuevo.';
-    addM('mk',rep,'Maki ✦');msgs.push({role:'assistant',content:rep});
-  }catch(e){ty.remove();addM('mk','No pude conectar. Intenta de nuevo o contacta a Talento Humano.','Maki ✦');}
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':'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',
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,system:SYS,messages:msgs})
+    });
+    const d=await resp.json();
+    ty.remove();
+    const rep=(d&&d.content&&d.content[0]&&d.content[0].text)?d.content[0].text:makiLocal(t);
+    addM('mk',rep,'Maki');msgs.push({role:'assistant',content:rep});
+  }catch(e){ty.remove();addM('mk',makiLocal(t),'Maki');}
   busy=false;
 }
+
+function makiLocal(q){
+  const l=q.toLowerCase();
+  if(l.includes('fondo')||l.includes('videollamada')||l.includes('zoom')){return 'Tenemos 3 fondos para Teams y Zoom!\n\n1. Fondo FIFA 26 Colombia - negro con bandera colombiana\n2. Fondo sala clara GPTW - sala luminosa con mapa makers\n3. Fondo sala oscura GPTW - sala moderna oscura makers\n\nLos encuentras en Fondos y recursos del menu izquierdo. Con Microsoft 365 activo tambien en OneDrive makers > Branding > Fondos. Maki';}
+  if(l.includes('cultura')||l.includes('power')||l.includes('valores')){return 'La cultura makers tiene 3 dimensiones:\n\n- Cultura de Mercado: resultados y disciplina\n- Cultura Adhocratica: innovacion y adaptabilidad\n- Cultura Clan: comunidad y confianza\n\n7 Powers makers: Sagacidad, Servicio, Empoderamiento, Anticipacion, Evolucion, Confianza y Maestria. Ver Quest 1 para profundizar. Maki';}
+  if(l.includes('buddy')||l.includes('guia')||l.includes('equipo')||l.includes('talento')){return 'Tu red en Soy Makers:\n\n- Buddy: acompanamiento cultural informal desde dia 1\n- Guia: lider directo, define tu rol y plan 30-60-90\n- Talento Humano: gobierna el proceso\n- Maki: agente 24/7 para dudas y recursos\n\nVe a Mi equipo en el menu para ver tus contactos. Maki';}
+  if(l.includes('biweekly')||l.includes('presentac')){return 'El Biweekly es tu momento de presentarte al equipo! 10-15 minutos en 3 partes:\n\n1. Quien soy: tu tribu y algo que pocos saben\n2. Lo que me mueve: pasiones y banda sonora\n3. Mi Power makers: superpoder y que quieres construir\n\nDescarga la guia en Quest 3 > Conectar con la red. Maki';}
+  if(l.includes('herramienta')||l.includes('teams')||l.includes('kompass')||l.includes('sapian')||l.includes('acceso')){return 'Tus herramientas makers:\n\nDia 1: Microsoft Teams + Kompass makers\nSemana 1: Sapian + Mesa de ayuda\n\nSi tienes bloqueos de acceso reportalo a la mesa de ayuda. Ver Quest 4 para el checklist completo. Maki';}
+  if(l.includes('quest')||l.includes('mision')||l.includes('30')||l.includes('60')||l.includes('90')){return 'Tienes 6 Quests en los primeros 30 dias:\n\n1. Descubrir makers\n2. Leer el sistema\n3. Conectar con la red + Biweekly\n4. Activar herramientas\n5. Trabajar con IA\n6. Crear valor + Makers 30\n\nCada Quest tiene video, presentacion y encuesta. Ve a Soy Makers Quest en el menu. Maki';}
+  if(l.includes('liderazgo')||l.includes('lider')){return 'En makers todos somos lideres! 4 niveles:\n\n- Lider de Estrategia: visionario\n- Lider de Proceso: optimiza y desarrolla\n- Lider de Influencia: inspira desde cualquier lugar\n- Lider de Ejecucion: impecable en la accion\n\nLos Guias tienen equipo a cargo y abren camino. Ver Quest 1 modulo Liderazgo. Maki';}
+  if(l.includes('hola')||l.includes('buenos')||l.includes('buenas')||l.includes('hi')){return 'Hola! Soy Maki, tu agente en Soy Makers. Las grandes cimas se conquistan juntos!\n\nPuedo ayudarte con fondos de videollamada, cultura makers, los 6 Quests, herramientas Teams y Kompass, el Biweekly y tu plan 30-60-90. Por donde empezamos?';}
+  return 'Hola! Soy Maki, tu agente Soy Makers. Puedo ayudarte con:\n\n- Fondos de videollamada para Teams\n- Cultura makers y los 7 Powers\n- Los 6 Quests y tu journey\n- Herramientas: Teams, Kompass, Sapian\n- El Biweekly y tu presentacion\n- Tu buddy, guia y Talento Humano\n\nSobre que quieres saber? Maki';
+}
+
 
 function addM(who,text,name){
   const b=document.getElementById('cms');
