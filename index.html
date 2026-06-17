@@ -1319,7 +1319,7 @@ async function send(){
   addM('us',t,'Tú');msgs.push({role:'user',content:t});
   const ty=addTy();busy=true;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS,messages:msgs})});
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':'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','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS,messages:msgs})});
     const d=await r.json();ty.remove();
     const rep=d.content?.[0]?.text||'Error al conectar. Intenta de nuevo.';
     addM('mk',rep,'Maki ✦');msgs.push({role:'assistant',content:rep});
