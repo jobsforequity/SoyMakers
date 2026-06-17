@@ -753,16 +753,36 @@ nav{padding:6px 0;flex:1;overflow-y:auto}
 
         <!-- LISTA DE QUESTS -->
         <div class="cd">
-          <div class="qi" style="cursor:pointer" onclick="togglePhase('q1-body');togglePhase('q1-body')">
+          <div class="qi" style="cursor:pointer" onclick="openQuest('q1')">
             <div class="qc qd"><i class="ti ti-check" style="font-size:12px"></i></div>
-            <div class="inf"><div class="nm">Quest 1 · Descubrir makers</div><div class="sb3">Transformación cultural · Historia · Propósito · Nueva cima</div></div>
-            <span class="qb qbd" style="cursor:pointer" onclick="openQuest('q1')">Abrir ↗</span>
+            <div class="inf"><div class="nm">Quest 1 · Descubrir makers</div><div class="sb3">Cultura · Historia · Propósito · Powers · Encuesta</div></div>
+            <span class="qb qbd">Abrir ↗</span>
           </div>
-          <div class="qi"><div class="qc qa" style="font-size:13px">2</div><div class="inf"><div class="nm">Quest 2 · Leer el sistema</div><div class="sb3">Estructura, verticales, flujos de valor y clientes</div></div><span class="qb qba">En curso</span></div>
-          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 3 · Conectar con personas</div><div class="sb3">Cinco conversaciones clave: guía, buddy, equipo y TH</div></div><span class="qb qbl">Día 1</span></div>
-          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 4 · Activar herramientas</div><div class="sb3">Teams, Kompass, Sapian y mesa de ayuda</div></div><span class="qb qbl">Día 1</span></div>
-          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 5 · Aprender con IA</div><div class="sb3">Makers Expert Intelligence y prompts base por rol</div></div><span class="qb qbl">Semana 1</span></div>
-          <div class="qi"><div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div><div class="inf"><div class="nm">Quest 6 · Crear valor</div><div class="sb3">Primera misión real con feedback del guía</div></div><span class="qb qbl">Día 15</span></div>
+          <div class="qi" style="cursor:pointer" onclick="openQuest('q2')">
+            <div class="qc qa" style="font-size:13px">2</div>
+            <div class="inf"><div class="nm">Quest 2 · Leer el sistema</div><div class="sb3">Estructura · Verticales · Clientes · Flujos de valor</div></div>
+            <span class="qb qba">Abrir ↗</span>
+          </div>
+          <div class="qi" style="cursor:pointer" onclick="openQuest('q3')">
+            <div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div>
+            <div class="inf"><div class="nm">Quest 3 · Conectar con la red</div><div class="sb3">5 conversaciones · Buddy · Guía · Biweekly</div></div>
+            <span class="qb qbl">Día 1</span>
+          </div>
+          <div class="qi" style="cursor:pointer" onclick="openQuest('q4')">
+            <div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div>
+            <div class="inf"><div class="nm">Quest 4 · Activar herramientas</div><div class="sb3">Teams · Kompass · Sapian · Mesa de ayuda</div></div>
+            <span class="qb qbl">Día 1</span>
+          </div>
+          <div class="qi" style="cursor:pointer" onclick="openQuest('q5')">
+            <div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div>
+            <div class="inf"><div class="nm">Quest 5 · Trabajar con IA</div><div class="sb3">Makers Expert Intelligence · Prompts base</div></div>
+            <span class="qb qbl">Semana 1</span>
+          </div>
+          <div class="qi" style="cursor:pointer" onclick="openQuest('q6')">
+            <div class="qc ql"><i class="ti ti-lock" style="font-size:11px"></i></div>
+            <div class="inf"><div class="nm">Quest 6 · Crear valor</div><div class="sb3">Primera misión · Makers 30 · Feedback</div></div>
+            <span class="qb qbl">Día 15</span>
+          </div>
         </div>
 
         <!-- QUEST 1 EXPANDIDO -->
